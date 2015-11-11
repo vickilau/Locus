@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F31FB711BF2D8CE00103C8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB701BF2D8CE00103C8A /* main.m */; };
+		2F31FB741BF2D8CE00103C8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB731BF2D8CE00103C8A /* AppDelegate.m */; };
+		2F31FB771BF2D8CE00103C8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB761BF2D8CE00103C8A /* ViewController.m */; };
+		2F31FB7A1BF2D8CE00103C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F31FB781BF2D8CE00103C8A /* Main.storyboard */; };
+		2F31FB7D1BF2D8CE00103C8A /* Locus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB7B1BF2D8CE00103C8A /* Locus.xcdatamodeld */; };
+		2F31FB7F1BF2D8CE00103C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F31FB7E1BF2D8CE00103C8A /* Assets.xcassets */; };
+		2F31FB821BF2D8CE00103C8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F31FB801BF2D8CE00103C8A /* LaunchScreen.storyboard */; };
+		2F31FB8D1BF2D8CE00103C8A /* LocusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB8C1BF2D8CE00103C8A /* LocusTests.m */; };
+		2F31FB981BF2D8CE00103C8A /* LocusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB971BF2D8CE00103C8A /* LocusUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F31FB891BF2D8CE00103C8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F31FB641BF2D8CD00103C8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F31FB6B1BF2D8CE00103C8A;
+			remoteInfo = Locus;
+		};
+		2F31FB941BF2D8CE00103C8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F31FB641BF2D8CD00103C8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F31FB6B1BF2D8CE00103C8A;
+			remoteInfo = Locus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F31FB6C1BF2D8CE00103C8A /* Locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F31FB701BF2D8CE00103C8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F31FB721BF2D8CE00103C8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2F31FB731BF2D8CE00103C8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2F31FB751BF2D8CE00103C8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2F31FB761BF2D8CE00103C8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2F31FB791BF2D8CE00103C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F31FB7C1BF2D8CE00103C8A /* Locus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Locus.xcdatamodel; sourceTree = "<group>"; };
+		2F31FB7E1BF2D8CE00103C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F31FB811BF2D8CE00103C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F31FB831BF2D8CE00103C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F31FB881BF2D8CE00103C8A /* LocusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F31FB8C1BF2D8CE00103C8A /* LocusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocusTests.m; sourceTree = "<group>"; };
+		2F31FB8E1BF2D8CE00103C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F31FB931BF2D8CE00103C8A /* LocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F31FB971BF2D8CE00103C8A /* LocusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocusUITests.m; sourceTree = "<group>"; };
+		2F31FB991BF2D8CE00103C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F31FB691BF2D8CE00103C8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB851BF2D8CE00103C8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB901BF2D8CE00103C8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F31FB631BF2D8CD00103C8A = {
+			isa = PBXGroup;
+			children = (
+				2F31FB6E1BF2D8CE00103C8A /* Locus */,
+				2F31FB8B1BF2D8CE00103C8A /* LocusTests */,
+				2F31FB961BF2D8CE00103C8A /* LocusUITests */,
+				2F31FB6D1BF2D8CE00103C8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F31FB6D1BF2D8CE00103C8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FB6C1BF2D8CE00103C8A /* Locus.app */,
+				2F31FB881BF2D8CE00103C8A /* LocusTests.xctest */,
+				2F31FB931BF2D8CE00103C8A /* LocusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F31FB6E1BF2D8CE00103C8A /* Locus */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FB721BF2D8CE00103C8A /* AppDelegate.h */,
+				2F31FB731BF2D8CE00103C8A /* AppDelegate.m */,
+				2F31FB751BF2D8CE00103C8A /* ViewController.h */,
+				2F31FB761BF2D8CE00103C8A /* ViewController.m */,
+				2F31FB781BF2D8CE00103C8A /* Main.storyboard */,
+				2F31FB7E1BF2D8CE00103C8A /* Assets.xcassets */,
+				2F31FB801BF2D8CE00103C8A /* LaunchScreen.storyboard */,
+				2F31FB831BF2D8CE00103C8A /* Info.plist */,
+				2F31FB7B1BF2D8CE00103C8A /* Locus.xcdatamodeld */,
+				2F31FB6F1BF2D8CE00103C8A /* Supporting Files */,
+			);
+			path = Locus;
+			sourceTree = "<group>";
+		};
+		2F31FB6F1BF2D8CE00103C8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FB701BF2D8CE00103C8A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F31FB8B1BF2D8CE00103C8A /* LocusTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FB8C1BF2D8CE00103C8A /* LocusTests.m */,
+				2F31FB8E1BF2D8CE00103C8A /* Info.plist */,
+			);
+			path = LocusTests;
+			sourceTree = "<group>";
+		};
+		2F31FB961BF2D8CE00103C8A /* LocusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FB971BF2D8CE00103C8A /* LocusUITests.m */,
+				2F31FB991BF2D8CE00103C8A /* Info.plist */,
+			);
+			path = LocusUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F31FB6B1BF2D8CE00103C8A /* Locus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F31FB9C1BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "Locus" */;
+			buildPhases = (
+				2F31FB681BF2D8CE00103C8A /* Sources */,
+				2F31FB691BF2D8CE00103C8A /* Frameworks */,
+				2F31FB6A1BF2D8CE00103C8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Locus;
+			productName = Locus;
+			productReference = 2F31FB6C1BF2D8CE00103C8A /* Locus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F31FB871BF2D8CE00103C8A /* LocusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F31FB9F1BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "LocusTests" */;
+			buildPhases = (
+				2F31FB841BF2D8CE00103C8A /* Sources */,
+				2F31FB851BF2D8CE00103C8A /* Frameworks */,
+				2F31FB861BF2D8CE00103C8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F31FB8A1BF2D8CE00103C8A /* PBXTargetDependency */,
+			);
+			name = LocusTests;
+			productName = LocusTests;
+			productReference = 2F31FB881BF2D8CE00103C8A /* LocusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F31FB921BF2D8CE00103C8A /* LocusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F31FBA21BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "LocusUITests" */;
+			buildPhases = (
+				2F31FB8F1BF2D8CE00103C8A /* Sources */,
+				2F31FB901BF2D8CE00103C8A /* Frameworks */,
+				2F31FB911BF2D8CE00103C8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F31FB951BF2D8CE00103C8A /* PBXTargetDependency */,
+			);
+			name = LocusUITests;
+			productName = LocusUITests;
+			productReference = 2F31FB931BF2D8CE00103C8A /* LocusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F31FB641BF2D8CD00103C8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Vicki Lau";
+				TargetAttributes = {
+					2F31FB6B1BF2D8CE00103C8A = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					2F31FB871BF2D8CE00103C8A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 2F31FB6B1BF2D8CE00103C8A;
+					};
+					2F31FB921BF2D8CE00103C8A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 2F31FB6B1BF2D8CE00103C8A;
+					};
+				};
+			};
+			buildConfigurationList = 2F31FB671BF2D8CE00103C8A /* Build configuration list for PBXProject "Locus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F31FB631BF2D8CD00103C8A;
+			productRefGroup = 2F31FB6D1BF2D8CE00103C8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F31FB6B1BF2D8CE00103C8A /* Locus */,
+				2F31FB871BF2D8CE00103C8A /* LocusTests */,
+				2F31FB921BF2D8CE00103C8A /* LocusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F31FB6A1BF2D8CE00103C8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F31FB821BF2D8CE00103C8A /* LaunchScreen.storyboard in Resources */,
+				2F31FB7F1BF2D8CE00103C8A /* Assets.xcassets in Resources */,
+				2F31FB7A1BF2D8CE00103C8A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB861BF2D8CE00103C8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB911BF2D8CE00103C8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F31FB681BF2D8CE00103C8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F31FB7D1BF2D8CE00103C8A /* Locus.xcdatamodeld in Sources */,
+				2F31FB771BF2D8CE00103C8A /* ViewController.m in Sources */,
+				2F31FB741BF2D8CE00103C8A /* AppDelegate.m in Sources */,
+				2F31FB711BF2D8CE00103C8A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB841BF2D8CE00103C8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F31FB8D1BF2D8CE00103C8A /* LocusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F31FB8F1BF2D8CE00103C8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F31FB981BF2D8CE00103C8A /* LocusUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F31FB8A1BF2D8CE00103C8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F31FB6B1BF2D8CE00103C8A /* Locus */;
+			targetProxy = 2F31FB891BF2D8CE00103C8A /* PBXContainerItemProxy */;
+		};
+		2F31FB951BF2D8CE00103C8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F31FB6B1BF2D8CE00103C8A /* Locus */;
+			targetProxy = 2F31FB941BF2D8CE00103C8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F31FB781BF2D8CE00103C8A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F31FB791BF2D8CE00103C8A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F31FB801BF2D8CE00103C8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F31FB811BF2D8CE00103C8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F31FB9A1BF2D8CE00103C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F31FB9B1BF2D8CE00103C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F31FB9D1BF2D8CE00103C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Locus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.Locus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2F31FB9E1BF2D8CE00103C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Locus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.Locus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2F31FBA01BF2D8CE00103C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LocusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.LocusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locus.app/Locus";
+			};
+			name = Debug;
+		};
+		2F31FBA11BF2D8CE00103C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LocusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.LocusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locus.app/Locus";
+			};
+			name = Release;
+		};
+		2F31FBA31BF2D8CE00103C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LocusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.LocusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Locus;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2F31FBA41BF2D8CE00103C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LocusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.LocusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Locus;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F31FB671BF2D8CE00103C8A /* Build configuration list for PBXProject "Locus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F31FB9A1BF2D8CE00103C8A /* Debug */,
+				2F31FB9B1BF2D8CE00103C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F31FB9C1BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "Locus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F31FB9D1BF2D8CE00103C8A /* Debug */,
+				2F31FB9E1BF2D8CE00103C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F31FB9F1BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "LocusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F31FBA01BF2D8CE00103C8A /* Debug */,
+				2F31FBA11BF2D8CE00103C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F31FBA21BF2D8CE00103C8A /* Build configuration list for PBXNativeTarget "LocusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F31FBA31BF2D8CE00103C8A /* Debug */,
+				2F31FBA41BF2D8CE00103C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F31FB7B1BF2D8CE00103C8A /* Locus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F31FB7C1BF2D8CE00103C8A /* Locus.xcdatamodel */,
+			);
+			currentVersion = 2F31FB7C1BF2D8CE00103C8A /* Locus.xcdatamodel */;
+			path = Locus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2F31FB641BF2D8CD00103C8A /* Project object */;
+}
