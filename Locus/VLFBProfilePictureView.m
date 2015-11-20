@@ -28,6 +28,20 @@
             }
         }
     }
+    
+    [self.layer setBackgroundColor:[UIColor clearColor].CGColor];
+    
+    [self.layer setCornerRadius:30.0f];
+    // border
+    [self.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.layer setBorderWidth:1.5f];
+    
+    // drop shadow
+    [self.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.layer setShadowOpacity:0.8];
+    [self.layer setShadowRadius:3.0];
+    [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    
     return self;
 }
 

@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
 #import "VLProfileTableViewController.h"
+#import "VLLoginViewController.h"
 
 @interface VLProfileViewController : UIViewController
 
@@ -18,6 +19,10 @@
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIButton *editSaveToggleButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+- (IBAction)logoutButtonClicked:(id)sender;
 
 - (IBAction)toggleButtonClicked:(id)sender;
 

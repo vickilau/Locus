@@ -46,7 +46,6 @@
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"hello");
         UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
         [self presentViewController:tabBC animated:YES completion:nil];
     }];

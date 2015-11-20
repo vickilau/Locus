@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2058231BFECFC600ECE1AD /* woman.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2058221BFECFC600ECE1AD /* woman.png */; settings = {ASSET_TAGS = (); }; };
+		2F2058271BFED0FC00ECE1AD /* quiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2058261BFED0FC00ECE1AD /* quiz.png */; settings = {ASSET_TAGS = (); }; };
+		2F2058291BFED16D00ECE1AD /* locals.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2058281BFED16D00ECE1AD /* locals.png */; settings = {ASSET_TAGS = (); }; };
+		2F20582B1BFED1E200ECE1AD /* itinerary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F20582A1BFED1E200ECE1AD /* itinerary.png */; settings = {ASSET_TAGS = (); }; };
+		2F20582D1BFED1EA00ECE1AD /* travel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F20582C1BFED1EA00ECE1AD /* travel.png */; settings = {ASSET_TAGS = (); }; };
 		2F31FB711BF2D8CE00103C8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB701BF2D8CE00103C8A /* main.m */; };
 		2F31FB741BF2D8CE00103C8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB731BF2D8CE00103C8A /* AppDelegate.m */; };
 		2F31FB7A1BF2D8CE00103C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F31FB781BF2D8CE00103C8A /* Main.storyboard */; };
@@ -21,6 +26,7 @@
 		2F8C7C8A1BFE5E06003E6314 /* VLTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7C891BFE5E06003E6314 /* VLTripViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2F8C7C8D1BFE762B003E6314 /* VLTripTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2F8C7C901BFE778A003E6314 /* VLFBProfilePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7C8F1BFE778A003E6314 /* VLFBProfilePictureView.m */; settings = {ASSET_TAGS = (); }; };
+		2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCC119D1BFED9E300E28FBD /* defaultPic.png */; settings = {ASSET_TAGS = (); }; };
 		2FD4CF911BFD000B00906CC7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
 		2FD4CF931BFD005F00906CC7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		2FD4CF951BFD0A3300906CC7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF941BFD0A3300906CC7 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
@@ -59,6 +65,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F2058221BFECFC600ECE1AD /* woman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman.png; sourceTree = "<group>"; };
+		2F2058261BFED0FC00ECE1AD /* quiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quiz.png; sourceTree = "<group>"; };
+		2F2058281BFED16D00ECE1AD /* locals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locals.png; sourceTree = "<group>"; };
+		2F20582A1BFED1E200ECE1AD /* itinerary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = itinerary.png; sourceTree = "<group>"; };
+		2F20582C1BFED1EA00ECE1AD /* travel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travel.png; sourceTree = "<group>"; };
 		2F31FB6C1BF2D8CE00103C8A /* Locus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F31FB701BF2D8CE00103C8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F31FB721BF2D8CE00103C8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +99,7 @@
 		2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLTripTableViewController.m; sourceTree = "<group>"; };
 		2F8C7C8E1BFE778A003E6314 /* VLFBProfilePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLFBProfilePictureView.h; sourceTree = "<group>"; };
 		2F8C7C8F1BFE778A003E6314 /* VLFBProfilePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLFBProfilePictureView.m; sourceTree = "<group>"; };
+		2FCC119D1BFED9E300E28FBD /* defaultPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPic.png; sourceTree = "<group>"; };
 		2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FD4CF941BFD0A3300906CC7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -254,8 +266,14 @@
 		2FDC923C1BFC775F007468D1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2F2058221BFECFC600ECE1AD /* woman.png */,
 				2FDC92201BFC72DC007468D1 /* logo.png */,
 				2F7BABCB1BFD9B7A008C2F2B /* background.jpg */,
+				2F2058261BFED0FC00ECE1AD /* quiz.png */,
+				2F20582A1BFED1E200ECE1AD /* itinerary.png */,
+				2F20582C1BFED1EA00ECE1AD /* travel.png */,
+				2FCC119D1BFED9E300E28FBD /* defaultPic.png */,
+				2F2058281BFED16D00ECE1AD /* locals.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -364,8 +382,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F31FB7F1BF2D8CE00103C8A /* Assets.xcassets in Resources */,
+				2F2058231BFECFC600ECE1AD /* woman.png in Resources */,
+				2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */,
+				2F2058291BFED16D00ECE1AD /* locals.png in Resources */,
+				2F2058271BFED0FC00ECE1AD /* quiz.png in Resources */,
 				2F7BABCC1BFD9B7A008C2F2B /* background.jpg in Resources */,
 				2F31FB7A1BF2D8CE00103C8A /* Main.storyboard in Resources */,
+				2F20582D1BFED1EA00ECE1AD /* travel.png in Resources */,
+				2F20582B1BFED1E200ECE1AD /* itinerary.png in Resources */,
 				2FDC92211BFC72DC007468D1 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Vicki Lau. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <UIKit/UIKit.h>
 #import "VLTripTableViewController.h"
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @property (weak, nonatomic) IBOutlet UIButton *editSaveToggleButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
 
 - (IBAction)toggleButtonClicked:(id)sender;
 

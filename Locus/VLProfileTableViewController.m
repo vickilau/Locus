@@ -15,53 +15,27 @@ NSString * const kHomeLocationKey = @"homeLocationField";
 NSString * const kAboutMeFieldKey = @"aboutMeField";
 NSString * const kFavActivitiesFieldKey = @"faveActivitiesField";
 NSString * const kFavPlacesFieldKey = @"favePlacesField";
-NSString * const kDefaultString = @"";
+NSString * const kDefaultAboutMeString = @"Tell us about yourself";
+NSString * const kDefaultFavPlacesString = @"#hiking #readingInCoffeeShops";
+NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarmersMarket";
+
 
 @implementation VLProfileTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self disableTextFields];
-    PFUser *user = [PFUser currentUser];
-    if ([user objectForKey:kNameFieldKey]) {
-        [self.nameField setText:[user objectForKey:kNameFieldKey]];
-    } else {
-        [self.nameField setText:kDefaultString];
+- (instancetype) init {
+    if (self = [super init]) {
+        [self.aboutMeTextView setDelegate:self];
     }
-    if ([user objectForKey:kGenderFieldKey]) {
-        [self.genderField setText:[user objectForKey:kGenderFieldKey]];
-    } else {
-        [self.genderField setText:kDefaultString];
-    }
-    if ([user objectForKey:kAgeFieldKey]) {
-        [self.ageField setText:[user objectForKey:kAgeFieldKey]];
-    } else {
-        [self.ageField setText:kDefaultString];
-    }
-    if ([user objectForKey:kHomeLocationKey]) {
-        [self.homeLocationField setText:[user objectForKey:kHomeLocationKey]];
-    } else {
-        [self.homeLocationField setText:kDefaultString];
-    }
-    if ([user objectForKey:kAboutMeFieldKey]) {
-        [self.aboutMeField setText:[user objectForKey:kAboutMeFieldKey]];
-    } else {
-        [self.aboutMeField setText:kDefaultString];
-    }
-    if ([user objectForKey:kFavActivitiesFieldKey]) {
-        [self.favActivitiesField setText:[user objectForKey:kFavActivitiesFieldKey]];
-    } else {
-        [self.favActivitiesField setText:kDefaultString];
-    }
-    if ([user objectForKey:kFavPlacesFieldKey]) {
-        [self.favPlacesField setText:[user objectForKey:kFavPlacesFieldKey]];
-    } else {
-        [self.favPlacesField setText:kDefaultString];
-    }
+    [self.aboutMeField setEnabled:NO];
+    [self.favActivitiesField setEnabled:NO];
+    [self.favPlacesField setEnabled:NO];
+
+    return self;
 }
 
-- (IBAction)useCurrentLocation:(id)sender {
+- (void)viewDidLoad {
+    [self reloadTextFieldValues];
+    [self disableTextFields];
 }
 
 - (void)saveProfileFields {
@@ -72,11 +46,12 @@ NSString * const kDefaultString = @"";
     [user setValue:[self.genderField text] forKey:kGenderFieldKey];
     [user setValue:[self.ageField text] forKey:kAgeFieldKey];
     [user setValue:[self.homeLocationField text] forKey:kHomeLocationKey];
-    [user setValue:[self.aboutMeField text] forKey:kAboutMeFieldKey];
-    [user setValue:[self.favActivitiesField text] forKey:kFavActivitiesFieldKey];
-    [user setValue:[self.favPlacesField text] forKey:kFavPlacesFieldKey];
+    [user setValue:[self.aboutMeTextView text] forKey:kAboutMeFieldKey];
+    [user setValue:[self.favActivitiesTextView text] forKey:kFavActivitiesFieldKey];
+    [user setValue:[self.favPlacesTextView text] forKey:kFavPlacesFieldKey];
     [[PFUser currentUser] saveInBackground];
 
+    [self reloadTextFieldValues];
     [self redisplayTextFields];
 }
 
@@ -85,20 +60,62 @@ NSString * const kDefaultString = @"";
     [self.genderField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.ageField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.homeLocationField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.aboutMeField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.favActivitiesField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.favPlacesField setBorderStyle:UITextBorderStyleRoundedRect];
-
 
     [self.nameField setEnabled:YES];
     [self.genderField setEnabled:YES];
     [self.ageField setEnabled:YES];
     [self.homeLocationField setEnabled:YES];
-    [self.favActivitiesField setEnabled:YES];
-    [self.favPlacesField setEnabled:YES];
-    [self.aboutMeField setEditable:YES];
-    [self.aboutMeField setSelectable:YES];
+    
+    [self.aboutMeTextView setEditable:YES];
+    [self.favActivitiesTextView setEditable:YES];
+    [self.favPlacesTextView setEditable:YES];
     
     [self redisplayTextFields];
+}
+
+- (void)reloadTextFieldValues {
+    PFUser *user = [PFUser currentUser];
+    if ([user objectForKey:kNameFieldKey] && ![[user objectForKey:kNameFieldKey] isEqualToString:@""]) {
+        [self.nameField setText:[user objectForKey:kNameFieldKey]];
+    } else {
+        [self.nameField setPlaceholder:@"Locus"];
+    }
+    if ([user objectForKey:kGenderFieldKey] && ![[user objectForKey:kGenderFieldKey] isEqualToString:@""]) {
+        [self.genderField setText:[user objectForKey:kGenderFieldKey]];
+    } else {
+        [self.genderField setPlaceholder:@"Female"];
+    }
+    if ([user objectForKey:kAgeFieldKey] && ![[user objectForKey:kAgeFieldKey] isEqualToString:@""]) {
+        [self.ageField setText:[user objectForKey:kAgeFieldKey]];
+    } else {
+        [self.ageField setPlaceholder:@"28"];
+    }
+    if ([user objectForKey:kHomeLocationKey] && ![[user objectForKey:kHomeLocationKey] isEqualToString:@""]) {
+        [self.homeLocationField setText:[user objectForKey:kHomeLocationKey]];
+    } else {
+        [self.homeLocationField setPlaceholder:@"Los Angeles, CA"];
+    }
+    if ([user objectForKey:kAboutMeFieldKey] && ![[user objectForKey:kAboutMeFieldKey] isEqualToString:@""]) {
+        [self.aboutMeTextView setText:[user objectForKey:kAboutMeFieldKey]];
+    } else {
+        [self.aboutMeTextView setText:kDefaultAboutMeString];
+        [self.aboutMeTextView setTextColor:[UIColor lightGrayColor]];
+    }
+    if ([user objectForKey:kFavActivitiesFieldKey] && ![[user objectForKey:kFavActivitiesFieldKey] isEqualToString:@""]) {
+        [self.favActivitiesTextView setText:[user objectForKey:kFavActivitiesFieldKey]];
+    } else {
+        [self.favActivitiesTextView setText:kDefaultFavActivitiesString];
+        [self.favActivitiesTextView setTextColor:[UIColor lightGrayColor]];
+    }
+    if ([user objectForKey:kFavPlacesFieldKey] && ![[user objectForKey:kFavPlacesFieldKey] isEqualToString:@""]) {
+        [self.favPlacesTextView setText:[user objectForKey:kFavPlacesFieldKey]];
+    } else {
+        [self.favPlacesTextView setText:kDefaultFavPlacesString];
+        [self.favPlacesTextView setTextColor:[UIColor lightGrayColor]];
+    }
 }
 
 - (void)disableTextFields {
@@ -106,6 +123,7 @@ NSString * const kDefaultString = @"";
     [self.genderField setBorderStyle:UITextBorderStyleNone];
     [self.ageField setBorderStyle:UITextBorderStyleNone];
     [self.homeLocationField setBorderStyle:UITextBorderStyleNone];
+    [self.aboutMeField setBorderStyle:UITextBorderStyleNone];
     [self.favActivitiesField setBorderStyle:UITextBorderStyleNone];
     [self.favPlacesField setBorderStyle:UITextBorderStyleNone];
     
@@ -113,10 +131,10 @@ NSString * const kDefaultString = @"";
     [self.genderField setEnabled:NO];
     [self.ageField setEnabled:NO];
     [self.homeLocationField setEnabled:NO];
-    [self.favActivitiesField setEnabled:NO];
-    [self.favPlacesField setEnabled:NO];
-    [self.aboutMeField setEditable:NO];
-    [self.aboutMeField setSelectable:NO];
+    
+    [self.aboutMeTextView setEditable:NO];
+    [self.favActivitiesTextView setEditable:NO];
+    [self.favPlacesTextView setEditable:NO];
 }
 
 - (void)redisplayTextFields {
@@ -127,8 +145,38 @@ NSString * const kDefaultString = @"";
     [self.aboutMeField setNeedsDisplay];
     [self.favActivitiesField setNeedsDisplay];
     [self.favPlacesField setNeedsDisplay];
+    
+    [self.aboutMeTextView setNeedsDisplay];
+    [self.favActivitiesTextView setNeedsDisplay];
+    [self.favPlacesTextView setNeedsDisplay];
 }
 
-//- (IBAction)useCurrentLocation:(id)sender {
-//}
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"textdidbeginediting");
+    if ([textView.text isEqualToString:kDefaultAboutMeString] || [textView.text isEqualToString:kDefaultFavActivitiesString] || [textView.text isEqualToString:kDefaultFavPlacesString]) {
+        NSLog(@"settingtext");
+        [textView setText:@""];
+        [textView setNeedsDisplay];
+        [textView setTextColor:[UIColor blackColor]];
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@""]) {
+        if (textView == self.aboutMeTextView) {
+            [textView setText:kDefaultAboutMeString];
+        } else if (textView == self.favActivitiesTextView) {
+            [textView setText:kDefaultFavActivitiesString];
+        } else if (textView == self.favPlacesTextView) {
+            [textView setText:kDefaultFavPlacesString];
+        }
+        [textView setTextColor:[UIColor lightGrayColor]];
+        [textView setNeedsDisplay];
+    }
+    [textView resignFirstResponder];
+}
+
+- (IBAction)useCurrentLocation:(id)sender {
+}
 @end

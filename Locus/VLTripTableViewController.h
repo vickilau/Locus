@@ -10,7 +10,8 @@
 #import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
 
-@interface VLTripTableViewController : UITableViewController
+
+@interface VLTripTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
 @property (weak, nonatomic) IBOutlet UITextField *cityField;
@@ -24,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *budgetChoiceField;
 
 - (IBAction)useCurrentLocation:(id)sender;
+- (IBAction)numChildrenStepper:(id)sender;
+- (IBAction)numAdultsStepper:(id)sender;
 
 - (void)saveTripFields;
 
@@ -32,5 +35,8 @@
 - (void)disableTextFields;
 
 - (void)redisplayTextFields;
+
+- (NSInteger)segmentIndexForCurrency:(NSString *) currency;
+
 
 @end
