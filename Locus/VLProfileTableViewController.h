@@ -19,12 +19,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *favActivitiesField;
 @property (weak, nonatomic) IBOutlet UITextField *favPlacesField;
 
+
 @property (weak, nonatomic) IBOutlet UITextView *aboutMeTextView;
 @property (weak, nonatomic) IBOutlet UITextView *favActivitiesTextView;
 @property (weak, nonatomic) IBOutlet UITextView *favPlacesTextView;
 
-
-- (IBAction)useCurrentLocation:(id)sender;
 
 - (void)saveProfileFields;
 

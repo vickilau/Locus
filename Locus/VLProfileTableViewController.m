@@ -25,11 +25,10 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
 - (instancetype) init {
     if (self = [super init]) {
         [self.aboutMeTextView setDelegate:self];
+        [self.aboutMeField setEnabled:NO];
+        [self.favActivitiesField setEnabled:NO];
+        [self.favPlacesField setEnabled:NO];
     }
-    [self.aboutMeField setEnabled:NO];
-    [self.favActivitiesField setEnabled:NO];
-    [self.favPlacesField setEnabled:NO];
-
     return self;
 }
 
