@@ -11,10 +11,13 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/Parse.h>
 
+#import "VLConnectLocalsErrorViewController.h"
 #import "VLProfileTableViewController.h"
 #import "VLTripTableViewController.h"
 #import "VLQuizViewController.h"
 #import "VLTravelStyleViewController.h"
+#import "VLLocalTableViewController.h"
+#import "VLUtilities.h"
 
 @interface VLPageViewController : UIViewController <VLQuizViewControllerDelegate>
 
@@ -22,12 +25,15 @@
 @property (nonatomic, strong) VLTravelStyleViewController *travelStyleTVC;
 @property (nonatomic, strong) VLQuizViewController *quizVC;
 @property (nonatomic, strong) VLTripTableViewController *tripTVC;
-
+@property (nonatomic, strong) VLLocalTableViewController *localTVC;
+@property (nonatomic, strong) VLConnectLocalsErrorViewController *connectLocalsErrorVC;
+@property (nonatomic, strong) UINavigationController *connectLocalsNC;
 
 @property (nonatomic, strong) UIImageView *profilePicView;
 @property (nonatomic, strong) UIButton *actionButton;
 @property (nonatomic, strong) UIButton *logoutButton;
 @property (nonatomic, strong) UILabel *pageTitle;
 
-- (void)makeRound:(UIView *)view;
+@property (nonatomic, strong) PFUser *currentUser;
+
 @end

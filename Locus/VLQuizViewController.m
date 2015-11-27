@@ -52,7 +52,7 @@ NSString *kTravelStyleKey = @"travelStyle";
     [self.travelStyleBlurb setText:kDefaultTravelStyle];
     [self.travelStyleBlurb setClipsToBounds:YES];
     [_travelStyleBlurb setTextContainerInset:UIEdgeInsetsMake(5, 5, 5, 5)];
-    [self makeRound:self.travelStyleBlurb];
+    [VLUtilities makeRound:self.travelStyleBlurb];
     
     PFUser *currentUser = [PFUser currentUser];
     [currentUser setObject:kDefaultTravelStyle forKey:kTravelStyleKey];
@@ -138,21 +138,6 @@ NSString *kTravelStyleKey = @"travelStyle";
             return [UIImage imageNamed:@"defaultPic.png"];
             break;
     }
-}
-
-- (void)makeRound:(UIView *)view {
-    [view.layer setMasksToBounds:YES];
-    
-    [view.layer setCornerRadius:30.0f];
-    // border
-    [view.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [view.layer setBorderWidth:1.5f];
-    
-    // drop shadow
-    [view.layer setShadowColor:[UIColor blackColor].CGColor];
-    [view.layer setShadowOpacity:0.8];
-    [view.layer setShadowRadius:3.0];
-    [view.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
 }
 
 @end

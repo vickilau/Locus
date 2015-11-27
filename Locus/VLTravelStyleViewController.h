@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "VLUtilities.h"
+
 @interface VLTravelStyleViewController : UIViewController
 
+@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) UITextView *travelStyleBlurb;
 @property (nonatomic, strong) UITextView *instructionsBlurb;
 

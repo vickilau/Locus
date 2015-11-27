@@ -15,15 +15,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.currentUser = [PFUser currentUser];
+    
     self.profileTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyProfileTableViewController"];
     self.tripTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTripTableViewController"];
     self.quizVC = [[VLQuizViewController alloc] init];
     self.travelStyleTVC = [[VLTravelStyleViewController alloc] init];
+    self.localTVC = [[VLLocalTableViewController alloc] init];
+    self.connectLocalsErrorVC = [[VLConnectLocalsErrorViewController alloc] init];
+    self.connectLocalsNC = [[UINavigationController alloc] initWithRootViewController:self.localTVC];
+    [self.connectLocalsNC setToolbarHidden:YES];
     
     self.profilePicView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    self.logoutButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    self.logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.pageTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.actionButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [self.actionButton addTarget:self action:@selector(actionButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
@@ -36,28 +42,27 @@
     [self.pageTitle setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle1]];
     
     [self.profilePicView setContentMode:UIViewContentModeTop];
-    PFUser *user = [PFUser currentUser];
     if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
-                 [user setObject:result[@"id"] forKey:@"facebookId"];
+                 [self.currentUser setObject:result[@"id"] forKey:@"facebookId"];
                  NSString *profilePictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", result[@"id"]];
                  NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:profilePictureURL]];
                  [self.profilePicView setImage:[UIImage imageWithData:profilePictureData]];
                  
-                 [[PFUser currentUser] saveInBackground];
+                 [self.currentUser saveInBackground];
              }
          }];
-    } else if ([user objectForKey:@"profilePic"]) {
-        [self.profilePicView setImage:[user objectForKey:@"profilePic"]];
+    } else if ([self.currentUser objectForKey:@"profilePic"]) {
+        [self.profilePicView setImage:[self.currentUser objectForKey:@"profilePic"]];
     } else {
         [self.profilePicView setImage:[UIImage imageNamed:@"defaultPic.png"]];
     }
     
-    [self makeRound:self.profilePicView];
-    [self makeRound:self.logoutButton];
-    [self makeRound:self.actionButton];
+    [VLUtilities makeRound:self.profilePicView];
+    [VLUtilities makeRound:self.logoutButton];
+    [VLUtilities makeRound:self.actionButton];
     
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.profilePicView];
@@ -86,6 +91,11 @@
     } else if ([self.tabBarItem.title isEqualToString:@"Connect"]) {
         [self.pageTitle setText:@"Connect"];
         [self.actionButton setHidden:YES];
+        if ([self.currentUser objectForKey:@"cityField"] && [self.currentUser objectForKey:@"countryField"]) {
+            [self setContainerViewController:self.connectLocalsNC];
+        } else {
+            [self setContainerViewController:self.connectLocalsErrorVC];
+        }
     } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
         [self.pageTitle setText:@"My Itinerary"];
     }
@@ -109,7 +119,7 @@
 - (void)setContainerViewController:(UIViewController *) viewController {
     [self addChildViewController:viewController];
     [viewController.view setFrame:CGRectMake(10, CGRectGetMaxY(self.profilePicView.frame) + 10, CGRectGetWidth(self.view.bounds) - 20, CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.profilePicView.frame) - 20 - self.tabBarController.tabBar.frame.size.height)];
-    [self makeRound:viewController.view];
+    [VLUtilities makeRound:viewController.view];
     
     [self.view addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
@@ -155,25 +165,6 @@
     self.quizVC = [[VLQuizViewController alloc] init];
     [self.quizVC setDelegate:self];
     [self setContainerViewController:self.quizVC];
-}
-
-- (void)makeRound:(UIView *)view {
-    [view.layer setMasksToBounds:YES];
-    
-    if (view == self.actionButton || view == self.logoutButton) {
-        [view.layer setCornerRadius:5.0f];
-    } else {
-        [view.layer setCornerRadius:30.0f];
-    }
-    // border
-    [view.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [view.layer setBorderWidth:1.5f];
-    
-    // drop shadow
-    [view.layer setShadowColor:[UIColor blackColor].CGColor];
-    [view.layer setShadowOpacity:0.8];
-    [view.layer setShadowRadius:3.0];
-    [view.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
 }
 
 #pragma mark - VLQuizViewControllerDelegate
