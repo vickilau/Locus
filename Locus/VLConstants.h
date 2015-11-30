@@ -30,14 +30,20 @@
 
 + (NSString *) kActivityClass;
 + (NSString *) kActivityNameKey;
++ (NSString *) kActivityUserNamesKey;
 + (NSString *) kActivityCommentsKey;
 + (NSString *) kActivityRatingsKey;
++ (NSString *) kActivityFbPicturesKey;
++ (NSString *) kActivityAgesKey;
++ (NSString *) kActivityGendersKey;
 
 + (NSString *) kItineraryArrayKey;
 + (NSString *) kActivityNoteArrayKey;
 
 + (NSString *)kTravelStyleKey;
 
++ (NSString *) kProfilePicKey;
++ (NSString *) kFbPictureKey;
 + (NSString *) kNameFieldKey;
 + (NSString *) kGenderFieldKey;
 + (NSString *) kAgeFieldKey;

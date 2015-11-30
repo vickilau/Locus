@@ -27,10 +27,11 @@
     [self.suggestionImageView setFrame:CGRectMake(0, (self.frame.size.height - (self.frame.size.width * 0.4))/2, self.frame.size.width * 0.4, self.frame.size.width * 0.4)];
 
     CGFloat rowWidth = self.frame.size.width - CGRectGetMaxX(self.suggestionImageView.frame) - 15;
-
-    [self.addSuggestion setFrame:CGRectMake(self.frame.size.width - 10 - (mainRowHeight * 0.3), 10, mainRowHeight * 0.3, mainRowHeight * 0.3)];
     
-    [self.suggestionLabel setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, 10, rowWidth - CGRectGetWidth(self.addSuggestion.frame) - 5, mainRowHeight * 0.3)];
+    [self.commentsButton setFrame:CGRectMake(self.frame.size.width - 10 - 20, 25, 20, 20)];
+    [self.addSuggestion setFrame:CGRectMake(CGRectGetMinX(self.commentsButton.frame) - 15 - 20, 25, 20, 20)];
+    
+    [self.suggestionLabel setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, 10, rowWidth - CGRectGetWidth(self.addSuggestion.frame) - CGRectGetWidth(self.commentsButton.frame) - 20, mainRowHeight * 0.3)];
     
     [self.suggestionRating setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, CGRectGetMaxY(self.suggestionLabel.frame) + 5, rowWidth, mainRowHeight * 0.2)];
     
@@ -63,7 +64,8 @@
     [_addSuggestion addTarget:self action:@selector(addSuggestion:) forControlEvents:UIControlEventTouchUpInside];
     
     _commentsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_commentsButton addTarget:self action:@selector(showComments:) forControlEvents:UIControlEventTouchUpInside];
+    [_commentsButton setImage:[UIImage imageNamed:@"comments.png"] forState:UIControlStateNormal];
+    [_commentsButton addTarget:self action:@selector(showComments) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)addPropertiesAsSubviews {
@@ -116,7 +118,9 @@
 }
 
 - (void)showComments {
-    
+    id<VLLocalSuggestionsTableViewCellDelegate> strongDelegate = self.delegate;
+    [strongDelegate didClickToViewComments:self.suggestionLabel.text];
+
 }
 
 @end

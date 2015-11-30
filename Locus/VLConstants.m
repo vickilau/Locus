@@ -25,8 +25,12 @@ static NSString *kPlaceholderSaveActivityNoteString = @"Your notes about this ac
 
 static NSString *kActivityClass = @"Activity";
 static NSString *kActivityNameKey = @"activityName";
+static NSString *kActivityUserNamesKey = @"activityUserNames";
 static NSString *kActivityCommentsKey = @"activityComments";
 static NSString *kActivityRatingsKey = @"activityRatings";
+static NSString *kActivityFbPicturesKey = @"activityFbPictures";
+static NSString *kActivityAgesKey = @"activityAges";
+static NSString *kActivityGendersKey = @"activityGenders";
 
 static NSString *kPlaceholderNameField = @"Locus";
 static NSString *kPlaceholderGenderField = @"Female";
@@ -38,6 +42,8 @@ static NSString *kActivityNoteArrayKey = @"activityNote";
 
 static NSString *kTravelStyleKey = @"travelStyle";
 
+static NSString *kProfilePicKey = @"profilePicField";
+static NSString *kFbPictureKey = @"fbPictureField";
 static NSString *kNameFieldKey = @"nameField";
 static NSString *kGenderFieldKey = @"genderField";
 static NSString *kAgeFieldKey = @"ageField";
@@ -72,6 +78,15 @@ static NSString *kNumAdultsField = @"numAdultsField";
 + (NSString *)kActivityRatingMessage {
     return kActivityRatingMessage;
 }
++ (NSString *)kActivityFbPicturesKey {
+    return kActivityFbPicturesKey;
+}
++ (NSString *)kActivityAgesKey {
+    return kActivityAgesKey;
+}
++ (NSString *)kActivityGendersKey {
+    return kActivityGendersKey;
+}
 + (NSString *)kLocationMessage {
     return kLocationMessage;
 }
@@ -80,6 +95,9 @@ static NSString *kNumAdultsField = @"numAdultsField";
 }
 + (NSString *)kActivityNameKey {
     return kActivityNameKey;
+}
++ (NSString *)kActivityUserNamesKey {
+    return kActivityUserNamesKey;
 }
 + (NSString *)kActivityCommentsKey {
     return kActivityCommentsKey;
@@ -122,6 +140,12 @@ static NSString *kNumAdultsField = @"numAdultsField";
 }
 + (NSString *)kTravelStyleKey {
     return kTravelStyleKey;
+}
++ (NSString *)kProfilePicKey {
+    return kProfilePicKey;
+}
++ (NSString *)kFbPictureKey {
+    return kFbPictureKey;
 }
 + (NSString *)kNameFieldKey {
     return kNameFieldKey;

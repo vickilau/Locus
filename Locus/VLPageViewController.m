@@ -51,16 +51,17 @@
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
-                 [self.currentUser setObject:result[@"id"] forKey:@"facebookId"];
                  NSString *profilePictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", result[@"id"]];
                  NSData *profilePictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:profilePictureURL]];
                  [self.profilePicView setImage:[UIImage imageWithData:profilePictureData]];
                  
+                 [self.currentUser setObject:profilePictureData forKey:[VLConstants kFbPictureKey]];
+                 
                  [self.currentUser saveInBackground];
              }
          }];
-    } else if ([self.currentUser objectForKey:@"profilePic"]) {
-        [self.profilePicView setImage:[self.currentUser objectForKey:@"profilePic"]];
+    } else if ([self.currentUser objectForKey:[VLConstants kProfilePicKey]]) {
+        [self.profilePicView setImage:[self.currentUser objectForKey:[VLConstants kProfilePicKey]]];
     } else {
         [self.profilePicView setImage:[UIImage imageNamed:@"defaultPic.png"]];
     }
@@ -96,7 +97,7 @@
     } else if ([self.tabBarItem.title isEqualToString:@"Connect"]) {
         [self.pageTitle setText:@"Connect"];
         [self.actionButton setHidden:YES];
-        if ((![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""]) || [self.currentUser objectForKey:[VLConstants kTripLocationKey]]) {
+        if (([self.currentUser objectForKey:[VLConstants kCityFieldKey]] && [self.currentUser objectForKey:[VLConstants kCountryFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""])) {
             [self setContainerViewController:self.connectLocalsNC];
         } else {
             [self setContainerViewController:self.connectLocalsErrorVC];

@@ -125,7 +125,7 @@
 #pragma mark - VLLocalTableViewCellDelegate
 - (void)didClickToViewProfile:(VLLocalTableViewCell *)targetCell {
     VLLocalProfileTableViewController *localProfileTVC = [[VLLocalProfileTableViewController alloc] initWithCell:targetCell];
-    [self.navigationController pushViewController:localProfileTVC animated:YES];
+    [self.navigationController pushViewController:localProfileTVC animated:NO];
     
 }
 

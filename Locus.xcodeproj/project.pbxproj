@@ -79,6 +79,9 @@
 		2F9AE52F1C095EFB008E3E4F /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51F1C095EFB008E3E4F /* waterfall.jpg */; };
 		2F9AE5361C096789008E3E4F /* VLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AE5351C096789008E3E4F /* VLConstants.m */; };
 		2FA3F80A1C0BDF000059A5F5 /* VLSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */; };
+		2FA3F80C1C0BF3620059A5F5 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FA3F80B1C0BF3620059A5F5 /* comments.png */; };
+		2FA3F80F1C0BF6730059A5F5 /* VLUserCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3F80E1C0BF6730059A5F5 /* VLUserCommentsTableViewController.m */; };
+		2FA3F8121C0BF6950059A5F5 /* VLUserCommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3F8111C0BF6950059A5F5 /* VLUserCommentsTableViewCell.m */; };
 		2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCC119D1BFED9E300E28FBD /* defaultPic.png */; };
 		2FD4CF911BFD000B00906CC7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */; };
 		2FD4CF931BFD005F00906CC7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */; };
@@ -219,6 +222,11 @@
 		2F9AE5351C096789008E3E4F /* VLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLConstants.m; sourceTree = "<group>"; };
 		2FA3F8081C0BDF000059A5F5 /* VLSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLSignupViewController.h; sourceTree = "<group>"; };
 		2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLSignupViewController.m; sourceTree = "<group>"; };
+		2FA3F80B1C0BF3620059A5F5 /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
+		2FA3F80D1C0BF6730059A5F5 /* VLUserCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLUserCommentsTableViewController.h; sourceTree = "<group>"; };
+		2FA3F80E1C0BF6730059A5F5 /* VLUserCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLUserCommentsTableViewController.m; sourceTree = "<group>"; };
+		2FA3F8101C0BF6950059A5F5 /* VLUserCommentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLUserCommentsTableViewCell.h; sourceTree = "<group>"; };
+		2FA3F8111C0BF6950059A5F5 /* VLUserCommentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLUserCommentsTableViewCell.m; sourceTree = "<group>"; };
 		2FCC119D1BFED9E300E28FBD /* defaultPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPic.png; sourceTree = "<group>"; };
 		2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -429,6 +437,7 @@
 		2FDC923C1BFC775F007468D1 /* IconImages */ = {
 			isa = PBXGroup;
 			children = (
+				2FA3F80B1C0BF3620059A5F5 /* comments.png */,
 				2F9AE4ED1C07D8A7008E3E4F /* emptyHeart.png */,
 				2F9AE4EE1C07D8A7008E3E4F /* halfHeart.png */,
 				2F9AE4EF1C07D8A7008E3E4F /* fullHeart.png */,
@@ -547,6 +556,10 @@
 				2F08DEEF1C0653A2005C581F /* VLLocalTableViewCell.m */,
 				2F08DF001C066A8E005C581F /* VLLocalTableViewController.h */,
 				2F08DF011C066A8E005C581F /* VLLocalTableViewController.m */,
+				2FA3F80D1C0BF6730059A5F5 /* VLUserCommentsTableViewController.h */,
+				2FA3F80E1C0BF6730059A5F5 /* VLUserCommentsTableViewController.m */,
+				2FA3F8101C0BF6950059A5F5 /* VLUserCommentsTableViewCell.h */,
+				2FA3F8111C0BF6950059A5F5 /* VLUserCommentsTableViewCell.m */,
 			);
 			name = ConnectTab;
 			sourceTree = "<group>";
@@ -663,6 +676,7 @@
 				2F4DA7F11C0560C0004D5431 /* outdoorbazaar.jpeg in Resources */,
 				2F4DA7FD1C0599DE004D5431 /* right.png in Resources */,
 				2F9AE5241C095EFB008E3E4F /* falafel.jpg in Resources */,
+				2FA3F80C1C0BF3620059A5F5 /* comments.png in Resources */,
 				2F9AE4F01C07D8A7008E3E4F /* emptyHeart.png in Resources */,
 				2F9AE5201C095EFB008E3E4F /* icecream.jpeg in Resources */,
 				2F4DA7F01C0560C0004D5431 /* hiking.jpeg in Resources */,
@@ -739,11 +753,13 @@
 				2F31FBDA1BF3059E00103C8A /* VLLabel.m in Sources */,
 				2F4DA8001C062CDE004D5431 /* VLTravelStyleViewController.m in Sources */,
 				2FF50B591C0AC69300902552 /* VLItineraryCompletionViewController.m in Sources */,
+				2FA3F8121C0BF6950059A5F5 /* VLUserCommentsTableViewCell.m in Sources */,
 				2F9AE5061C094E1C008E3E4F /* VLData.m in Sources */,
 				2F08DF0B1C068D8E005C581F /* VLUtilities.m in Sources */,
 				2F9AE5361C096789008E3E4F /* VLConstants.m in Sources */,
 				2F08DF171C06CC9B005C581F /* VLLocalProfileTableViewCell.m in Sources */,
 				2F08DEF41C0656B2005C581F /* RateView.m in Sources */,
+				2FA3F80F1C0BF6730059A5F5 /* VLUserCommentsTableViewController.m in Sources */,
 				2F17A0581C0504DE0086C4C8 /* VLPageViewController.m in Sources */,
 				2F9AE4F51C07FD51008E3E4F /* VLItineraryTableViewController.m in Sources */,
 				2F08DF141C06CBF3005C581F /* VLLocalProfileTableViewController.m in Sources */,

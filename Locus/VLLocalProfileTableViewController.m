@@ -10,7 +10,7 @@
 
 @implementation VLLocalProfileTableViewController
 
-- (instancetype) initWithCell:(VLLocalTableViewCell *)cell {
+- (instancetype)initWithCell:(VLLocalTableViewCell *)cell {
     if (self = [super init]) {
         _localCell = cell;
         _currentUser = [PFUser currentUser];
@@ -129,5 +129,10 @@
 #pragma mark - VLLocalSuggestionsTableViewCellDelegate
 - (void)didAddToItinerary:(UIAlertController *)alert {
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)didClickToViewComments:(NSString *)activityName {
+    VLUserCommentsTableViewController *userCommentsTVC = [[VLUserCommentsTableViewController alloc] initWithActivityName:activityName];
+    [self.navigationController pushViewController:userCommentsTVC animated:NO];
 }
 @end

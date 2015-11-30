@@ -14,6 +14,7 @@
 #import "VLLocalProfileTableViewCell.h"
 #import "VLLocalTableViewCell.h"
 #import "VLLocalSuggestionsTableViewCell.h"
+#import "VLUserCommentsTableViewController.h"
 
 @interface VLLocalProfileTableViewController : UITableViewController <VLLocalSuggestionsTableViewCellDelegate>
 

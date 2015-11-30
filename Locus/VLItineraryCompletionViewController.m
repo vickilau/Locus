@@ -83,21 +83,62 @@
     PFQuery *query = [PFQuery queryWithClassName:[VLConstants kActivityClass]];
     [query whereKey:[VLConstants kActivityNameKey] equalTo:_activityName.text];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        NSData *fbPicture = [self.currentUser objectForKey:[VLConstants kFbPictureKey]];
+        if (!fbPicture) {
+            fbPicture = [[NSData alloc] init];
+        }
+        NSString *age = [self.currentUser objectForKey:[VLConstants kAgeFieldKey]];
+        if (!age) {
+            age = @"";
+        }
+        NSString *gender = [self.currentUser objectForKey:[VLConstants kGenderFieldKey]];
+        if (!gender) {
+            gender = @"";
+        }
+        NSString *name = [self.currentUser objectForKey:[VLConstants kNameFieldKey]];
+        if (!name) {
+            name = @"";
+        }
+        
         if (!object) {
             PFObject *object = [PFObject objectWithClassName:[VLConstants kActivityClass]];
             NSMutableArray *comments = [[NSMutableArray alloc]initWithObjects:_activityNote.text, nil];
             NSMutableArray *ratings = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithFloat:_activityRating.rating], nil];
+            
+            NSMutableArray *fbPictures = [[NSMutableArray alloc] initWithObjects:fbPicture, nil];
+            NSMutableArray *ages = [[NSMutableArray alloc] initWithObjects:age, nil];
+            NSMutableArray *genders = [[NSMutableArray alloc] initWithObjects:gender, nil];
+            NSMutableArray *names = [[NSMutableArray alloc] initWithObjects:name, nil];
+            
+            object[[VLConstants kActivityFbPicturesKey]] = fbPictures;
             object[[VLConstants kActivityCommentsKey]] = comments;
             object[[VLConstants kActivityRatingsKey]] = ratings;
             object[[VLConstants kActivityNameKey]] = _activityName.text;
+            object[[VLConstants kActivityAgesKey]] = ages;
+            object[[VLConstants kActivityGendersKey]] = genders;
+            object[[VLConstants kActivityUserNamesKey]] = names;
             [object saveInBackground];
         } else {
             NSMutableArray *comments = object[[VLConstants kActivityCommentsKey]];
             [comments addObject:_activityNote.text];
             NSMutableArray *ratings = object[[VLConstants kActivityRatingsKey]];
             [ratings addObject:[NSNumber numberWithFloat:_activityRating.rating]];
+            NSMutableArray *fbPictures = object[[VLConstants kActivityFbPicturesKey]];
+            [fbPictures addObject:fbPicture];
+            NSMutableArray *ages = object[[VLConstants kActivityAgesKey]];
+            [ages addObject:age];
+            NSMutableArray *genders = object[[VLConstants kActivityGendersKey]];
+            [genders addObject:gender];
+            NSMutableArray *names = object[[VLConstants kActivityUserNamesKey]];
+            [names addObject:name];
+            
             object[[VLConstants kActivityCommentsKey]] = comments;
             object[[VLConstants kActivityRatingsKey]] = ratings;
+            object[[VLConstants kActivityFbPicturesKey]] = fbPictures;
+            object[[VLConstants kActivityAgesKey]] = ages;
+            object[[VLConstants kActivityGendersKey]] = genders;
+            object[[VLConstants kActivityUserNamesKey]] = names;
             [object saveInBackground];
         }
     }];
