@@ -38,10 +38,15 @@
             
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [self loadView];
+                id<VLUserCommentsTableViewControllerDelegate> strongDelegate = self.delegate;
+                [strongDelegate didFinishInit:self];
+
             });
             
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            id<VLUserCommentsTableViewControllerDelegate> strongDelegate = self.delegate;
+            [strongDelegate didFinishInit:self];
         }
     }];
 }

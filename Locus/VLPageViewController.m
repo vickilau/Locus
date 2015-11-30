@@ -166,6 +166,7 @@
 }
 
 - (void)logoutButtonClicked {
+    [PFUser logOut];
     [self.tabBarController willMoveToParentViewController:nil];
     [self.tabBarController.view removeFromSuperview];
     [self.tabBarController removeFromParentViewController];

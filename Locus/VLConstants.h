@@ -17,6 +17,7 @@
 + (NSString *) kEmptyItineraryMessage;
 + (NSString *) kActivityRatingMessage;
 + (NSString *) kLocationMessage;
++ (NSString *) kNoCommentsMessage;
 
 + (NSString *) kPlaceholderNameField;
 + (NSString *) kPlaceholderGenderField;

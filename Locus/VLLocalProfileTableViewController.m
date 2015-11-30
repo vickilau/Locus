@@ -133,6 +133,19 @@
 
 - (void)didClickToViewComments:(NSString *)activityName {
     VLUserCommentsTableViewController *userCommentsTVC = [[VLUserCommentsTableViewController alloc] initWithActivityName:activityName];
-    [self.navigationController pushViewController:userCommentsTVC animated:NO];
+    [userCommentsTVC setDelegate:self];
 }
+
+#pragma mark - VLUserCommentsTableViewControllerDelegate
+- (void)didFinishInit:(VLUserCommentsTableViewController *)controller {
+    if (controller.comments.count == 0) {
+        VLMessageViewController *noCommentsVC = [[VLMessageViewController alloc] init];
+        [noCommentsVC.message setText:[VLConstants kNoCommentsMessage]];
+        [self.navigationController pushViewController:noCommentsVC animated:NO];
+    } else {
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
+
 @end

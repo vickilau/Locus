@@ -16,7 +16,7 @@
 #import "VLLocalSuggestionsTableViewCell.h"
 #import "VLUserCommentsTableViewController.h"
 
-@interface VLLocalProfileTableViewController : UITableViewController <VLLocalSuggestionsTableViewCellDelegate>
+@interface VLLocalProfileTableViewController : UITableViewController <VLLocalSuggestionsTableViewCellDelegate, VLUserCommentsTableViewControllerDelegate>
 
 @property (strong, nonatomic) VLLocalTableViewCell *localCell;
 @property (strong, nonatomic) PFUser *currentUser;

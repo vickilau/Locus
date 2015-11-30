@@ -17,6 +17,7 @@ static NSString *kDefaultTravelStyle = @"You are the all-around traveler! You ar
 static NSString *kEmptyItineraryMessage = @"You do not have any saved suggestions in your itinerary! Click on the \"Connect\" tab to search for suggestions.";
 static NSString *kActivityRatingMessage = @"How did you enjoy this suggestion?";
 static NSString *kLocationMessage = @"Locals near you";
+static NSString *kNoCommentsMessage = @"No comments have been made about this suggestion yet.";
 
 static NSString *kPlaceholderAboutMeString = @"Tell us about yourself";
 static NSString *kPlaceholderFavPlacesString = @"#hiking #readingInCoffeeShops";
@@ -77,6 +78,9 @@ static NSString *kNumAdultsField = @"numAdultsField";
 }
 + (NSString *)kActivityRatingMessage {
     return kActivityRatingMessage;
+}
++ (NSString *)kNoCommentsMessage {
+    return kNoCommentsMessage;
 }
 + (NSString *)kActivityFbPicturesKey {
     return kActivityFbPicturesKey;
