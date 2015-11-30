@@ -11,8 +11,11 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/Parse.h>
 
-#import "VLConnectLocalsErrorViewController.h"
+#import "VLConstants.h"
+#import "VLMessageViewController.h"
+#import "VLItineraryTableViewController.h"
 #import "VLProfileTableViewController.h"
+#import "VLMainViewController.h"
 #import "VLTripTableViewController.h"
 #import "VLQuizViewController.h"
 #import "VLTravelStyleViewController.h"
@@ -21,12 +24,14 @@
 
 @interface VLPageViewController : UIViewController <VLQuizViewControllerDelegate>
 
+@property (nonatomic, strong) VLItineraryTableViewController *itineraryTVC;
 @property (nonatomic, strong) VLProfileTableViewController *profileTVC;
 @property (nonatomic, strong) VLTravelStyleViewController *travelStyleTVC;
 @property (nonatomic, strong) VLQuizViewController *quizVC;
 @property (nonatomic, strong) VLTripTableViewController *tripTVC;
 @property (nonatomic, strong) VLLocalTableViewController *localTVC;
-@property (nonatomic, strong) VLConnectLocalsErrorViewController *connectLocalsErrorVC;
+@property (nonatomic, strong) VLMessageViewController *connectLocalsErrorVC;
+@property (nonatomic, strong) VLMessageViewController *emptyItineraryMessageVC;
 @property (nonatomic, strong) UINavigationController *connectLocalsNC;
 
 @property (nonatomic, strong) UIImageView *profilePicView;

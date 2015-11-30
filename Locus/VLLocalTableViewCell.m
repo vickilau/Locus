@@ -8,9 +8,6 @@
 
 #import "VLLocalTableViewCell.h"
 
-NSString *kItineraryFieldKey = @"itinerary";
-NSString *kActivityNoteKey = @"activityNote";
-
 @implementation VLLocalTableViewCell
 
 - (instancetype)init {
@@ -49,6 +46,9 @@ NSString *kActivityNoteKey = @"activityNote";
 }
 
 - (void)setProperties {
+     _firstSuggestionRating = [[RateView alloc] init];
+    _secondSuggestionRating = [[RateView alloc] init];
+
     _ratingView = [[RateView alloc] init];
     [_ratingView setNotSelectedImage:[UIImage imageNamed:@"emptyStar.png"]];
     [_ratingView setHalfSelectedImage:[UIImage imageNamed:@"halfStar.png"]];
@@ -143,28 +143,39 @@ NSString *kActivityNoteKey = @"activityNote";
                                                               PFUser *currentUser = [PFUser currentUser];
                                                               
                                                               NSString *note = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-                                                              NSMutableArray *activityNotes = [currentUser objectForKey:kActivityNoteKey];
+                                                              NSMutableArray *activityNotes = [currentUser objectForKey:[VLConstants kActivityNoteArrayKey]];
                                                               if (activityNotes) {
                                                                   [activityNotes addObject:note];
                                                               } else {
                                                                   activityNotes = [[NSMutableArray alloc] initWithObjects:note, nil];
                                                               }
-                                                              [currentUser setObject:activityNotes forKey:kActivityNoteKey];
+                                                              [currentUser setObject:activityNotes forKey:[VLConstants kActivityNoteArrayKey]];
                                                               
-                                                              NSMutableArray *itinerary = [currentUser objectForKey:kItineraryFieldKey];
-                                                              if (itinerary) {
-                                                                  [itinerary addObject:suggestion];
-                                                              } else {
-                                                                  itinerary = [[NSMutableArray alloc] initWithObjects:suggestion, nil];
+                                                              NSMutableArray *itinerary = [currentUser objectForKey:[VLConstants kItineraryArrayKey]];
+                                                              NSString *suggestionPlace;
+                                                              switch (buttonClicked.tag) {
+                                                                  case 1:
+                                                                      suggestionPlace = _firstSuggestion.text;
+                                                                      break;
+                                                                  case 2:
+                                                                      suggestionPlace = _secondSuggestion.text;
+                                                                      break;
+                                                                  default:
+                                                                      break;
                                                               }
-                                                              [currentUser setObject:itinerary forKey:kItineraryFieldKey];
+                                                              if (itinerary) {
+                                                                  [itinerary addObject:suggestionPlace];
+                                                              } else {
+                                                                  itinerary = [[NSMutableArray alloc] initWithObjects:suggestionPlace, nil];
+                                                              }
+                                                              [currentUser setObject:itinerary forKey:[VLConstants kItineraryArrayKey]];
                                                               [currentUser saveInBackground];
                                                           }];
     
     [alert addAction:saveAction];
     [alert addAction:cancelAction];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-         textField.placeholder = NSLocalizedString(@"Add your notes about this activity.", @"Add your notes about this activity.");
+        [textField setPlaceholder:[VLConstants kPlaceholderSaveActivityNoteString]];
      }];
     id<VLLocalTableViewCellDelegate> strongDelegate = self.delegate;
     [strongDelegate didAddToItinerary:alert];

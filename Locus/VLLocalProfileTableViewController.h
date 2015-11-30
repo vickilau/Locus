@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "VLConstants.h"
+#import "VLData.h"
 #import "VLLocalProfileTableViewCell.h"
 #import "VLLocalTableViewCell.h"
 #import "VLLocalSuggestionsTableViewCell.h"

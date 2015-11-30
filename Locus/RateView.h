@@ -26,6 +26,7 @@
 @property (assign) int midMargin;
 @property (assign) int leftMargin;
 @property (assign) CGSize minImageSize;
+
 @property (assign) id <RateViewDelegate> delegate;
 
 @end

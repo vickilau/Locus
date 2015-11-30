@@ -8,49 +8,42 @@
 
 #import "VLTripTableViewController.h"
 
-NSString * const kCountryFieldKey = @"countryField";
-NSString * const kCityFieldKey = @"cityField";
-NSString * const kStartDateFieldKey = @"startDateField";
-NSString * const kEndDateFieldKey = @"endDateField";
-NSString * const kCurrencyChoiceFieldKey = @"currencyChoiceField";
-NSString * const kBudgetFieldKey = @"budgetField";
-NSString * const kBudgetChoiceKey = @"budgetChoiceField";
-NSString * const kNumChildrenField = @"numChildrenField";
-NSString * const kNumAdultsField = @"numAdultsField";
-
 @implementation VLTripTableViewController
-
-- (instancetype)init {
-    if (self = [super init]) {
-        [self.budgetField setDelegate:self];
-        [self.numAdultsField setDelegate:self];
-        [self.numChildrenField setDelegate:self];
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.currentUser = [PFUser currentUser];
+    [self.budgetField setDelegate:self];
+    [self.numAdultsField setDelegate:self];
+    [self.numChildrenField setDelegate:self];
+    [self.currentLocation setEnabled:NO];
+    [self.childrenStepper setEnabled:NO];
+    [self.adultStepper setEnabled:NO];
+    [self.currentLocation setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [self.startDateField setMinimumDate:[NSDate date]];
+    [self.endDateField setMaximumDate:[NSDate date]];
+    self.oldAdultsValue = 0;
+    self.oldChildrenValue = 0;
+    
     [self reloadTextFieldValues];
     [self disableTextFields];
 }
 
 - (void)saveTripFields {
-    PFUser *user = [PFUser currentUser];
     [self disableTextFields];
     
-    [user setValue:[self.countryField text] forKey:kCountryFieldKey];
-    [user setValue:[self.cityField text] forKey:kCityFieldKey];
-    [user setValue:[self.startDateField text] forKey:kStartDateFieldKey];
-    [user setValue:[self.endDateField text] forKey:kEndDateFieldKey];
-    [user setValue:[self.budgetField text] forKey:kBudgetFieldKey];
-    [user setValue:[self.numChildrenField text] forKey:kNumChildrenField];
-    [user setValue:[self.numAdultsField text] forKey:kNumAdultsField];
+    [self.currentUser setValue:[self.countryField text] forKey:[VLConstants kCountryFieldKey]];
+    [self.currentUser setValue:[self.cityField text] forKey:[VLConstants kCityFieldKey]];
+    [self.currentUser setValue:[self.startDateField date] forKey:[VLConstants kStartDateFieldKey]];
+    [self.currentUser setValue:[self.endDateField date] forKey:[VLConstants kEndDateFieldKey]];
+    [self.currentUser setValue:[self.budgetField text] forKey:[VLConstants kBudgetFieldKey]];
+    [self.currentUser setValue:[self.numChildrenField text] forKey:[VLConstants kNumChildrenField]];
+    [self.currentUser setValue:[self.numAdultsField text] forKey:[VLConstants kNumAdultsField]];
 
-    [user setValue:[self.currencyChoiceField titleForSegmentAtIndex:[self.currencyChoiceField selectedSegmentIndex]] forKey:kCurrencyChoiceFieldKey];
-    [user setValue:[self.budgetChoiceField titleForSegmentAtIndex:[self.budgetChoiceField selectedSegmentIndex]] forKey:kBudgetChoiceKey];
+    [self.currentUser setValue:[self.currencyChoiceField titleForSegmentAtIndex:[self.currencyChoiceField selectedSegmentIndex]] forKey:[VLConstants kCurrencyChoiceFieldKey]];
+    [self.currentUser setValue:[self.budgetChoiceField titleForSegmentAtIndex:[self.budgetChoiceField selectedSegmentIndex]] forKey:[VLConstants kBudgetChoiceKey]];
     
-    [[PFUser currentUser] saveInBackground];
+    [self.currentUser saveInBackground];
     
     [self reloadTextFieldValues];
     [self redisplayTextFields];
@@ -59,60 +52,54 @@ NSString * const kNumAdultsField = @"numAdultsField";
 - (void)editTripFields {
     [self.countryField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.cityField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.startDateField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.endDateField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.budgetField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.numChildrenField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.numAdultsField setBorderStyle:UITextBorderStyleRoundedRect];
 
     [self.countryField setEnabled:YES];
     [self.cityField setEnabled:YES];
-    [self.startDateField setEnabled:YES];
-    [self.endDateField setEnabled:YES];
     [self.currencyChoiceField setEnabled:YES];
     [self.budgetField setEnabled:YES];
     [self.budgetChoiceField setEnabled:YES];
     [self.numChildrenField setEnabled:YES];
     [self.numAdultsField setEnabled:YES];    
-    
+    [self.currentLocation setEnabled:YES];
+    [self.childrenStepper setEnabled:YES];
+    [self.adultStepper setEnabled:YES];
+
     [self redisplayTextFields];
 }
 
 
 - (void)reloadTextFieldValues {
-    PFUser *user = [PFUser currentUser];
-    if ([user objectForKey:kCountryFieldKey] && ![[user objectForKey:kCountryFieldKey] isEqualToString:@""]) {
-        [self.countryField setText:[user objectForKey:kCountryFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kCountryFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""]) {
+        [self.countryField setText:[self.currentUser objectForKey:[VLConstants kCountryFieldKey]]];
     } else {
         [self.countryField setPlaceholder:@"United States"];
     }
-    if ([user objectForKey:kCityFieldKey] && ![[user objectForKey:kCityFieldKey] isEqualToString:@""]) {
-        [self.cityField setText:[user objectForKey:kCityFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kCityFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""]) {
+        [self.cityField setText:[self.currentUser objectForKey:[VLConstants kCityFieldKey]]];
     } else {
         [self.cityField setPlaceholder:@"Los Angeles"];
     }
-    if ([user objectForKey:kStartDateFieldKey] && ![[user objectForKey:kStartDateFieldKey] isEqualToString:@""]) {
-        [self.startDateField setText:[user objectForKey:kStartDateFieldKey]];
-    } else {
-        [self.startDateField setPlaceholder:@"10/16/2015"];
+    if ([self.currentUser objectForKey:[VLConstants kStartDateFieldKey]]) {
+        [self.startDateField setDate:[self.currentUser objectForKey:[VLConstants kStartDateFieldKey]]];
     }
-    if ([user objectForKey:kEndDateFieldKey] && ![[user objectForKey:kEndDateFieldKey] isEqualToString:@""]) {
-        [self.endDateField setText:[user objectForKey:kEndDateFieldKey]];
-    } else {
-        [self.endDateField setPlaceholder:@"1/1/2016"];
+    if ([self.currentUser objectForKey:[VLConstants kEndDateFieldKey]]) {
+        [self.endDateField setDate:[self.currentUser objectForKey:[VLConstants kEndDateFieldKey]]];
     }
-    if ([user objectForKey:kBudgetFieldKey] && ![[user objectForKey:kBudgetFieldKey] isEqualToString:@""]) {
-        [self.budgetField setText:[user objectForKey:kBudgetFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kBudgetFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kBudgetFieldKey]] isEqualToString:@""]) {
+        [self.budgetField setText:[self.currentUser objectForKey:[VLConstants kBudgetFieldKey]]];
     } else {
         [self.budgetField setPlaceholder:@"500"];
     }
-    if ([user objectForKey:kNumChildrenField] && ![[user objectForKey:kNumChildrenField] isEqualToString:@""]) {
-        [self.numChildrenField setText:[user objectForKey:kNumChildrenField]];
+    if ([self.currentUser objectForKey:[VLConstants kNumChildrenField]] && ![[self.currentUser objectForKey:[VLConstants kNumChildrenField]] isEqualToString:@""]) {
+        [self.numChildrenField setText:[self.currentUser objectForKey:[VLConstants kNumChildrenField]]];
     } else {
         [self.numChildrenField setPlaceholder:@"0"];
     }
-    if ([user objectForKey:kNumAdultsField] && ![[user objectForKey:kNumAdultsField] isEqualToString:@""]) {
-        [self.numAdultsField setText:[user objectForKey:kNumAdultsField]];
+    if ([self.currentUser objectForKey:[VLConstants kNumAdultsField]] && ![[self.currentUser objectForKey:[VLConstants kNumAdultsField]] isEqualToString:@""]) {
+        [self.numAdultsField setText:[self.currentUser objectForKey:[VLConstants kNumAdultsField]]];
     } else {
         [self.numAdultsField setPlaceholder:@"3"];
     }
@@ -132,8 +119,6 @@ NSString * const kNumAdultsField = @"numAdultsField";
 - (void)disableTextFields {
     [self.countryField setBorderStyle:UITextBorderStyleNone];
     [self.cityField setBorderStyle:UITextBorderStyleNone];
-    [self.startDateField setBorderStyle:UITextBorderStyleNone];
-    [self.endDateField setBorderStyle:UITextBorderStyleNone];
     [self.budgetField setBorderStyle:UITextBorderStyleNone];
     [self.numChildrenField setBorderStyle:UITextBorderStyleNone];
     [self.numAdultsField setBorderStyle:UITextBorderStyleNone];
@@ -142,11 +127,14 @@ NSString * const kNumAdultsField = @"numAdultsField";
     [self.cityField setEnabled:NO];
     [self.startDateField setEnabled:NO];
     [self.endDateField setEnabled:NO];
+    [self.currentLocation setEnabled:NO];
     [self.currencyChoiceField setEnabled:NO];
     [self.budgetField setEnabled:NO];
     [self.budgetChoiceField setEnabled:NO];
     [self.numChildrenField setEnabled:NO];
     [self.numAdultsField setEnabled:NO];
+    [self.childrenStepper setEnabled:NO];
+    [self.adultStepper setEnabled:NO];
 }
 
 - (void)redisplayTextFields {
@@ -161,27 +149,15 @@ NSString * const kNumAdultsField = @"numAdultsField";
     [self.numAdultsField setNeedsDisplay];
 }
 
-- (BOOL)textField: (UITextField *)textField shouldChangeCharactersInRange: (NSRange)range replacementString: (NSString *)string {
-    NSLog(@"being called");
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     if (textField == self.budgetField || textField == self.numChildrenField || textField == self.numAdultsField) {
-        unichar c = [string characterAtIndex:0];
-        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:c]) {
+        NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+        NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:textField.text];
+        if ([alphaNums isSupersetOfSet:inStringSet]) {
             return YES;
         } else {
-            return NO;
-        }
-    }
-    return YES;
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    NSLog(@"textFieldShouldEndEditing called");
-    if (textField == self.startDateField || textField == self.endDateField) {
-        NSString *regEx = @"^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$";
-        NSRange r = [textField.text rangeOfString:regEx options:NSRegularExpressionSearch];
-        if (r.location == NSNotFound) {
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Invalid Date Format"
-                                                                           message:@"Please Input Valid Date"
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Invalid Number Format"
+                                                                           message:@"Please input valid number"
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -196,12 +172,48 @@ NSString * const kNumAdultsField = @"numAdultsField";
 }
 
 - (IBAction)useCurrentLocation:(id)sender {
+    NSLog(@"useCurrentLocation");
+    if (self.currentLocation.selected) {
+        [self.currentLocation setSelected:NO];
+    } else {
+        [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+            if (!error) {
+                NSLog(@"User's trip location is at %f, %f", geoPoint.latitude, geoPoint.longitude);
+                
+                [self.currentUser setObject:geoPoint forKey:[VLConstants kTripLocationKey]];
+                [self.currentUser saveInBackground];
+                [self.currentLocation setSelected:YES];
+            }
+        }];
+    }
 }
 
 - (IBAction)numChildrenStepper:(id)sender {
+    UIStepper *stepper = (UIStepper *)sender;
+    NSInteger numChildren = [self.numChildrenField.text integerValue];
+    if (stepper.value > self.oldChildrenValue) {
+        self.numChildrenField.text =  [NSString stringWithFormat: @"%ld", (long)(numChildren + 1)];
+        self.oldChildrenValue = stepper.value;
+    } else {
+        if (numChildren != 0) {
+            self.numChildrenField.text =  [NSString stringWithFormat: @"%ld", (long)(numChildren - 1)];
+            self.oldChildrenValue = stepper.value;
+        }
+    }
 }
 
 - (IBAction)numAdultsStepper:(id)sender {
+    UIStepper *stepper = (UIStepper *)sender;
+    NSInteger numAdults = [self.numAdultsField.text integerValue];
+    if (stepper.value > self.oldAdultsValue) {
+        self.numAdultsField.text =  [NSString stringWithFormat: @"%ld", (long)(numAdults + 1)];
+        self.oldAdultsValue = stepper.value;
+    } else {
+        if (numAdults != 0) {
+            self.numAdultsField.text =  [NSString stringWithFormat: @"%ld", (long)(numAdults - 1)];
+            self.oldAdultsValue = stepper.value;
+        }
+    }
 }
    
 - (NSInteger)segmentIndexForCurrency:(NSString *) currency {

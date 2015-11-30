@@ -36,53 +36,46 @@
 - (void)loadView {
     [super loadView];
     
-    [self.firstLocalCell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f]];
-    [self.firstLocalCell.profileImageView setImage:[UIImage imageNamed:@"bar.jpg"]];
-    [self.firstLocalCell.nameLabel setText:@"Vicki Lau"];
-    [self.firstLocalCell.ratingView setRating:4.8];
-    [self.firstLocalCell.firstSuggestion setText:@"Eaton Canyon "];
-    [self.firstLocalCell.secondSuggestion setText:@"Nick's Cafe"];
-    [self.firstLocalCell.firstSuggestionNote setText:@"hiking at sunset is beautiful!"];
-    [self.firstLocalCell.secondSuggestionNote setText:@"best brunch in the area!!!"];
-    [self.firstLocalCell.firstSuggestionRating setRating:5];
-    [self.firstLocalCell.secondSuggestionRating setRating:5];
-    [self.firstLocalCell setDelegate:self];
-    
-    [self.secondLocalCell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f]];
-    [self.secondLocalCell.profileImageView setImage:[UIImage imageNamed:@"beach.jpeg"]];
-    [self.secondLocalCell.nameLabel setText:@"Gautam Rao"];
-    [self.secondLocalCell.ratingView setRating:3.5];
-    [self.secondLocalCell.firstSuggestion setText:@"Aer Lounge"];
-    [self.secondLocalCell.secondSuggestion setText:@"Red Beach"];
-    [self.secondLocalCell.firstSuggestionNote setText:@"great atmosphere for hanging with friends"];
-    [self.secondLocalCell.secondSuggestionNote setText:@"weather is always perfect!"];
-    [self.secondLocalCell.firstSuggestionRating setRating:4.3];
-    [self.secondLocalCell.secondSuggestionRating setRating:3.8];
-    [self.secondLocalCell setDelegate:self];
+    [self setCellProperties:self.firstLocalCell localName:[VLData firstLocal] imageName:[VLData firstLocalImage] localRating:[VLData firstLocalRating] aboutMe:[VLData firstLocalAboutMe] faves:[VLData firstLocalFaves] gender:[VLData firstLocalGender] age:[VLData firstLocalAge] firstSuggestion:[VLData firstLocalFirstSuggestion] secondSuggestion:[VLData firstLocalSecondSuggestion] thirdSuggeston:[VLData firstLocalThirdSuggestion] fourthSuggestion:[VLData firstLocalFourthSuggestion] firstSuggestionNote:[VLData firstLocalFirstNote] secondSuggestionNote:[VLData firstLocalSecondNote] thirdSuggestionNote:[VLData firstLocalThirdNote] fourthSuggestionNote:[VLData firstLocalFourthNote] firstSuggestionRating:[VLData firstLocalFirstSuggestionRating] secondSuggestionRating:[VLData firstLocalSecondSuggestionRating] thirdSuggestionRating:[VLData firstLocalThirdSuggestionRating] fourthSuggestionRating:[VLData firstLocalFourthSuggestionRating] firstSuggestionImageName:[VLData firstLocalFirstImage] secondSuggestionImageName:[VLData firstLocalSecondImage] thirdSuggestionImageName:[VLData firstLocalThirdImage] fourthSuggestionImageName:[VLData firstLocalFourthImage]];
 
-    [self.thirdLocalCell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f]];
-    [self.thirdLocalCell.profileImageView setImage:[UIImage imageNamed:@"cliffdiving.jpg"]];
-    [self.thirdLocalCell.nameLabel setText:@"Anwesha Jalan"];
-    [self.thirdLocalCell.ratingView setRating:1.2];
-    [self.thirdLocalCell.firstSuggestion setText:@"Taj Mahal"];
-    [self.thirdLocalCell.secondSuggestion setText:@"Dilli Haat"];
-    [self.thirdLocalCell.firstSuggestionNote setText:@"a must-see for everybody"];
-    [self.thirdLocalCell.secondSuggestionNote setText:@"open-air food plaza for foodies!!"];
-    [self.thirdLocalCell.firstSuggestionRating setRating:4.5];
-    [self.thirdLocalCell.secondSuggestionRating setRating:3.0];
-    [self.thirdLocalCell setDelegate:self];
+    [self setCellProperties:self.secondLocalCell localName:[VLData secondLocal] imageName:[VLData secondLocalImage] localRating:[VLData secondLocalRating] aboutMe:[VLData secondLocalAboutMe] faves:[VLData secondLocalFaves] gender:[VLData secondLocalGender] age:[VLData secondLocalAge] firstSuggestion:[VLData secondLocalFirstSuggestion] secondSuggestion:[VLData secondLocalSecondSuggestion] thirdSuggeston:[VLData secondLocalThirdSuggestion] fourthSuggestion:[VLData secondLocalFourthSuggestion] firstSuggestionNote:[VLData secondLocalFirstNote] secondSuggestionNote:[VLData secondLocalSecondNote] thirdSuggestionNote:[VLData secondLocalThirdNote] fourthSuggestionNote:[VLData secondLocalFourthNote] firstSuggestionRating:[VLData secondLocalFirstSuggestionRating] secondSuggestionRating:[VLData secondLocalSecondSuggestionRating] thirdSuggestionRating:[VLData secondLocalThirdSuggestionRating] fourthSuggestionRating:[VLData secondLocalFourthSuggestionRating] firstSuggestionImageName:[VLData secondLocalFirstImage] secondSuggestionImageName:[VLData secondLocalSecondImage] thirdSuggestionImageName:[VLData secondLocalThirdImage] fourthSuggestionImageName:[VLData secondLocalFourthImage]];
+
+    [self setCellProperties:self.thirdLocalCell localName:[VLData thirdLocal] imageName:[VLData thirdLocalImage] localRating:[VLData thirdLocalRating]aboutMe:[VLData thirdLocalAboutMe] faves:[VLData thirdLocalFaves] gender:[VLData thirdLocalGender] age:[VLData thirdLocalAge] firstSuggestion:[VLData thirdLocalFirstSuggestion] secondSuggestion:[VLData thirdLocalSecondSuggestion] thirdSuggeston:[VLData thirdLocalThirdSuggestion] fourthSuggestion:[VLData thirdLocalFourthSuggestion] firstSuggestionNote:[VLData thirdLocalFirstNote] secondSuggestionNote:[VLData thirdLocalSecondNote] thirdSuggestionNote:[VLData thirdLocalThirdNote] fourthSuggestionNote:[VLData thirdLocalFourthNote] firstSuggestionRating:[VLData thirdLocalFirstSuggestionRating] secondSuggestionRating:[VLData thirdLocalSecondSuggestionRating] thirdSuggestionRating:[VLData thirdLocalThirdSuggestionRating] fourthSuggestionRating:[VLData thirdLocalFourthSuggestionRating] firstSuggestionImageName:[VLData thirdLocalFirstImage] secondSuggestionImageName:[VLData thirdLocalSecondImage] thirdSuggestionImageName:[VLData thirdLocalThirdImage] fourthSuggestionImageName:[VLData thirdLocalFourthImage]];
+
+    [self setCellProperties:self.fourthLocalCell localName:[VLData fourthLocal] imageName:[VLData fourthLocalImage] localRating:[VLData fourthLocalRating] aboutMe:[VLData fourthLocalAboutMe] faves:[VLData fourthLocalFaves] gender:[VLData fourthLocalGender] age:[VLData fourthLocalAge] firstSuggestion:[VLData fourthLocalFirstSuggestion] secondSuggestion:[VLData fourthLocalSecondSuggestion] thirdSuggeston:[VLData fourthLocalThirdSuggestion] fourthSuggestion:[VLData fourthLocalFourthSuggestion] firstSuggestionNote:[VLData fourthLocalFirstNote] secondSuggestionNote:[VLData fourthLocalSecondNote] thirdSuggestionNote:[VLData fourthLocalThirdNote] fourthSuggestionNote:[VLData fourthLocalFourthNote] firstSuggestionRating:[VLData fourthLocalFirstSuggestionRating] secondSuggestionRating:[VLData fourthLocalSecondSuggestionRating] thirdSuggestionRating:[VLData fourthLocalThirdSuggestionRating] fourthSuggestionRating:[VLData fourthLocalFourthSuggestionRating] firstSuggestionImageName:[VLData fourthLocalFirstImage] secondSuggestionImageName:[VLData fourthLocalSecondImage] thirdSuggestionImageName:[VLData fourthLocalThirdImage] fourthSuggestionImageName:[VLData fourthLocalFourthImage]];
+}
+
+- (void)setCellProperties:(VLLocalTableViewCell *)cell localName:(NSString *)localName imageName:(NSString *)imageName localRating:(float)localRating aboutMe:(NSString *)aboutMe faves:(NSString *)faves gender:(NSString *)gender age:(NSString *)age firstSuggestion:(NSString *)firstSuggestion secondSuggestion:(NSString *)secondSuggestion thirdSuggeston:(NSString *)thirdSuggestion fourthSuggestion:(NSString *)fourthSuggestion firstSuggestionNote:(NSString *)firstSuggestionNote secondSuggestionNote:(NSString *)secondSuggestionNote thirdSuggestionNote:(NSString *)thirdSuggestionNote fourthSuggestionNote:(NSString *)fourthSuggestionNote firstSuggestionRating:(float)firstSuggestionRating secondSuggestionRating:(float)secondSuggestionRating thirdSuggestionRating:(float)thirdSuggestionRating fourthSuggestionRating:(float)fourthSuggestionRating firstSuggestionImageName:(NSString *)firstSuggestionImageName secondSuggestionImageName:(NSString *)secondSuggestionImageName thirdSuggestionImageName:(NSString *)thirdSuggestionImageName fourthSuggestionImageName:(NSString *)fourthSuggestionImageName {
+    [cell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f]];
+    [cell.profileImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [cell.profileImageView setImage:[UIImage imageNamed:imageName]];
+    [cell.nameLabel setText:localName];
+    [cell.ratingView setRating:localRating];
+    cell.aboutMe = aboutMe;
+    cell.faves = faves;
+    cell.gender = gender;
+    cell.age = age;
     
-    [self.fourthLocalCell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f]];
-    [self.fourthLocalCell.profileImageView setImage:[UIImage imageNamed:@"hiking.jpeg"]];
-    [self.fourthLocalCell.nameLabel setText:@"Erin Singer"];
-    [self.fourthLocalCell.ratingView setRating:3.8];
-    [self.fourthLocalCell.firstSuggestion setText:@"CS147 Lecture"];
-    [self.fourthLocalCell.secondSuggestion setText:@"CS147 Studio"];
-    [self.fourthLocalCell.firstSuggestionNote setText:@"lectures are always interesting"];
-    [self.fourthLocalCell.secondSuggestionNote setText:@"see cool projects come alive"];
-    [self.fourthLocalCell.firstSuggestionRating setRating:2.0];
-    [self.fourthLocalCell.secondSuggestionRating setRating:5.0];
-    [self.fourthLocalCell setDelegate:self];
+    [cell.firstSuggestion setText:firstSuggestion];
+    [cell.secondSuggestion setText:secondSuggestion];
+    cell.thirdSuggestion = thirdSuggestion;
+    cell.fourthSuggestion = fourthSuggestion;
+    
+    [cell.firstSuggestionNote setText:firstSuggestionNote];
+    [cell.secondSuggestionNote setText:secondSuggestionNote];
+    cell.thirdSuggestionNote = thirdSuggestionNote;
+    cell.fourthSuggestionNote = fourthSuggestionNote;
+    
+    [cell.firstSuggestionRating setRating:firstSuggestionRating];
+    [cell.secondSuggestionRating setRating:secondSuggestionRating];
+    cell.thirdSuggestionRating = thirdSuggestionRating;
+    cell.fourthSuggestionRating = fourthSuggestionRating;
+    
+    cell.firstSuggestionImageString = firstSuggestionImageName;
+    cell.secondSuggestionImageString = secondSuggestionImageName;
+    cell.thirdSuggestionImageString = thirdSuggestionImageName;
+    cell.fourthSuggestionImageString = fourthSuggestionImageName;
+    [cell setDelegate:self];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -108,7 +101,12 @@
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSString *location = [[[self.currentUser objectForKey:@"cityField"] stringByAppendingString:@", "] stringByAppendingString:[self.currentUser objectForKey:@"countryField"]];
+    NSString *location;
+    if (![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""]) {
+        location = [[[self.currentUser objectForKey:[VLConstants kCityFieldKey]] stringByAppendingString:@", "] stringByAppendingString:[self.currentUser objectForKey:[VLConstants kCountryFieldKey]]];
+    } else {
+        location = [VLConstants kLocationMessage];
+    }
 
     UILabel *label = [[UILabel alloc] init];
     [label setText:location];

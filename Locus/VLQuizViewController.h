@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "VLConstants.h"
 #import "VLUtilities.h"
 
 @protocol VLQuizViewControllerDelegate;

@@ -43,8 +43,6 @@
     
     [self.favsField setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 5, CGRectGetMaxY(self.aboutMeField.frame) + 5, widthRow, [VLUtilities getHeightOfLabel:self.favsField width:widthRow])];
     
-    CGFloat newHeight = 10 + self.aboutMeField.frame.size.height + 5 + self.favsField.frame.size.height + 10;
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, newHeight)];
 }
 
 - (void)setProperties {
@@ -63,6 +61,9 @@
     
     [_aboutMeField setTextColor:[UIColor blackColor]];
     [_favsField setTextColor:[UIColor darkGrayColor]];
+    
+    [_profileImageView setContentMode:UIViewContentModeScaleToFill];
+    [_profileImageView setClipsToBounds:YES];
 }
 
 - (void)addPropertiesAsSubviews {

@@ -8,47 +8,40 @@
 
 #import "VLProfileTableViewController.h"
 
-NSString * const kNameFieldKey = @"nameField";
-NSString * const kGenderFieldKey = @"genderField";
-NSString * const kAgeFieldKey = @"ageField";
-NSString * const kHomeLocationKey = @"homeLocationField";
-NSString * const kAboutMeFieldKey = @"aboutMeField";
-NSString * const kFavActivitiesFieldKey = @"faveActivitiesField";
-NSString * const kFavPlacesFieldKey = @"favePlacesField";
-NSString * const kDefaultAboutMeString = @"Tell us about yourself";
-NSString * const kDefaultFavPlacesString = @"#hiking #readingInCoffeeShops";
-NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarmersMarket";
-
-
 @implementation VLProfileTableViewController
 
-- (instancetype) init {
-    if (self = [super init]) {
-        [self.aboutMeTextView setDelegate:self];
-        [self.aboutMeField setEnabled:NO];
-        [self.favActivitiesField setEnabled:NO];
-        [self.favPlacesField setEnabled:NO];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    self.currentUser = [PFUser currentUser];
+    [self.aboutMeTextView setDelegate:self];
+    [self.aboutMeField setEnabled:NO];
+    [self.favActivitiesField setEnabled:NO];
+    [self.favPlacesField setEnabled:NO];
+    [self.favActivitiesTextView setDelegate:self];
+    [self.favPlacesTextView setDelegate:self];
+    [self.currentLocationButton setEnabled:NO];
+    
     [self reloadTextFieldValues];
     [self disableTextFields];
 }
 
 - (void)saveProfileFields {
-    PFUser *user = [PFUser currentUser];
     [self disableTextFields];
     
-    [user setValue:[self.nameField text] forKey:kNameFieldKey];
-    [user setValue:[self.genderField text] forKey:kGenderFieldKey];
-    [user setValue:[self.ageField text] forKey:kAgeFieldKey];
-    [user setValue:[self.homeLocationField text] forKey:kHomeLocationKey];
-    [user setValue:[self.aboutMeTextView text] forKey:kAboutMeFieldKey];
-    [user setValue:[self.favActivitiesTextView text] forKey:kFavActivitiesFieldKey];
-    [user setValue:[self.favPlacesTextView text] forKey:kFavPlacesFieldKey];
-    [[PFUser currentUser] saveInBackground];
+    [self.currentUser setValue:[self.nameField text] forKey:[VLConstants kNameFieldKey]];
+    [self.currentUser setValue:[self.genderField text] forKey:[VLConstants kGenderFieldKey]];
+    [self.currentUser setValue:[self.ageField text] forKey:[VLConstants kAgeFieldKey]];
+    [self.currentUser setValue:[self.homeLocationField text] forKey:[VLConstants kHomeLocationKey]];
+    if (![[self.aboutMeTextView text] isEqualToString:[VLConstants kPlaceholderAboutMeString]]) {
+        [self.currentUser setValue:[self.aboutMeTextView text] forKey:[VLConstants kAboutMeFieldKey]];
+    }
+    if (![[self.favActivitiesTextView text] isEqualToString:[VLConstants kPlaceholderFavActivitiesString]]) {
+        [self.currentUser setValue:[self.favActivitiesTextView text] forKey:[VLConstants kFavActivitiesFieldKey]];
+    }
+    if (![[self.favPlacesTextView text] isEqualToString:[VLConstants kPlaceholderFavPlacesString]]) {
+        [self.currentUser setValue:[self.favPlacesTextView text] forKey:[VLConstants kFavPlacesFieldKey]];
+    }
+    [self.currentUser saveInBackground];
 
     [self reloadTextFieldValues];
     [self redisplayTextFields];
@@ -67,6 +60,7 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
     [self.genderField setEnabled:YES];
     [self.ageField setEnabled:YES];
     [self.homeLocationField setEnabled:YES];
+    [self.currentLocationButton setEnabled:YES];
     
     [self.aboutMeTextView setEditable:YES];
     [self.favActivitiesTextView setEditable:YES];
@@ -76,43 +70,42 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
 }
 
 - (void)reloadTextFieldValues {
-    PFUser *user = [PFUser currentUser];
-    if ([user objectForKey:kNameFieldKey] && ![[user objectForKey:kNameFieldKey] isEqualToString:@""]) {
-        [self.nameField setText:[user objectForKey:kNameFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kNameFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kNameFieldKey]] isEqualToString:@""]) {
+        [self.nameField setText:[self.currentUser objectForKey:[VLConstants kNameFieldKey]]];
     } else {
-        [self.nameField setPlaceholder:@"Locus"];
+        [self.nameField setPlaceholder:[VLConstants kPlaceholderNameField]];
     }
-    if ([user objectForKey:kGenderFieldKey] && ![[user objectForKey:kGenderFieldKey] isEqualToString:@""]) {
-        [self.genderField setText:[user objectForKey:kGenderFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kGenderFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kGenderFieldKey]] isEqualToString:@""]) {
+        [self.genderField setText:[self.currentUser objectForKey:[VLConstants kGenderFieldKey]]];
     } else {
-        [self.genderField setPlaceholder:@"Female"];
+        [self.genderField setPlaceholder:[VLConstants kPlaceholderGenderField]];
     }
-    if ([user objectForKey:kAgeFieldKey] && ![[user objectForKey:kAgeFieldKey] isEqualToString:@""]) {
-        [self.ageField setText:[user objectForKey:kAgeFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kAgeFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kAgeFieldKey]] isEqualToString:@""]) {
+        [self.ageField setText:[self.currentUser objectForKey:[VLConstants kAgeFieldKey]]];
     } else {
-        [self.ageField setPlaceholder:@"28"];
+        [self.ageField setPlaceholder:[VLConstants kPlaceholderAgeField]];
     }
-    if ([user objectForKey:kHomeLocationKey] && ![[user objectForKey:kHomeLocationKey] isEqualToString:@""]) {
-        [self.homeLocationField setText:[user objectForKey:kHomeLocationKey]];
+    if ([self.currentUser objectForKey:[VLConstants kHomeLocationKey]] && ![[self.currentUser objectForKey:[VLConstants kHomeLocationKey]] isEqualToString:@""]) {
+        [self.homeLocationField setText:[self.currentUser objectForKey:[VLConstants kHomeLocationKey]]];
     } else {
-        [self.homeLocationField setPlaceholder:@"Los Angeles, CA"];
+        [self.homeLocationField setPlaceholder:[VLConstants kPlaceholderHomeLocationField]];
     }
-    if ([user objectForKey:kAboutMeFieldKey] && ![[user objectForKey:kAboutMeFieldKey] isEqualToString:@""]) {
-        [self.aboutMeTextView setText:[user objectForKey:kAboutMeFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kAboutMeFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kAboutMeFieldKey]] isEqualToString:@""]) {
+        [self.aboutMeTextView setText:[self.currentUser objectForKey:[VLConstants kAboutMeFieldKey]]];
     } else {
-        [self.aboutMeTextView setText:kDefaultAboutMeString];
+        [self.aboutMeTextView setText:[VLConstants kPlaceholderAboutMeString]];
         [self.aboutMeTextView setTextColor:[UIColor lightGrayColor]];
     }
-    if ([user objectForKey:kFavActivitiesFieldKey] && ![[user objectForKey:kFavActivitiesFieldKey] isEqualToString:@""]) {
-        [self.favActivitiesTextView setText:[user objectForKey:kFavActivitiesFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kFavActivitiesFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kFavActivitiesFieldKey]] isEqualToString:@""]) {
+        [self.favActivitiesTextView setText:[self.currentUser objectForKey:[VLConstants kFavActivitiesFieldKey]]];
     } else {
-        [self.favActivitiesTextView setText:kDefaultFavActivitiesString];
+        [self.favActivitiesTextView setText:[VLConstants kPlaceholderFavActivitiesString]];
         [self.favActivitiesTextView setTextColor:[UIColor lightGrayColor]];
     }
-    if ([user objectForKey:kFavPlacesFieldKey] && ![[user objectForKey:kFavPlacesFieldKey] isEqualToString:@""]) {
-        [self.favPlacesTextView setText:[user objectForKey:kFavPlacesFieldKey]];
+    if ([self.currentUser objectForKey:[VLConstants kFavPlacesFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kFavPlacesFieldKey]] isEqualToString:@""]) {
+        [self.favPlacesTextView setText:[self.currentUser objectForKey:[VLConstants kFavPlacesFieldKey]]];
     } else {
-        [self.favPlacesTextView setText:kDefaultFavPlacesString];
+        [self.favPlacesTextView setText:[VLConstants kPlaceholderFavPlacesString]];
         [self.favPlacesTextView setTextColor:[UIColor lightGrayColor]];
     }
 }
@@ -130,6 +123,7 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
     [self.genderField setEnabled:NO];
     [self.ageField setEnabled:NO];
     [self.homeLocationField setEnabled:NO];
+    [self.currentLocationButton setEnabled:NO];
     
     [self.aboutMeTextView setEditable:NO];
     [self.favActivitiesTextView setEditable:NO];
@@ -152,7 +146,7 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     NSLog(@"textdidbeginediting");
-    if ([textView.text isEqualToString:kDefaultAboutMeString] || [textView.text isEqualToString:kDefaultFavActivitiesString] || [textView.text isEqualToString:kDefaultFavPlacesString]) {
+    if ([textView.text isEqualToString:[VLConstants kPlaceholderAboutMeString]] || [textView.text isEqualToString:[VLConstants kPlaceholderFavActivitiesString]] || [textView.text isEqualToString:[VLConstants kPlaceholderFavPlacesString]]) {
         NSLog(@"settingtext");
         [textView setText:@""];
         [textView setNeedsDisplay];
@@ -162,13 +156,14 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
+    NSLog(@"textdidendediting");
     if ([textView.text isEqualToString:@""]) {
         if (textView == self.aboutMeTextView) {
-            [textView setText:kDefaultAboutMeString];
+            [textView setText:[VLConstants kPlaceholderAboutMeString]];
         } else if (textView == self.favActivitiesTextView) {
-            [textView setText:kDefaultFavActivitiesString];
+            [textView setText:[VLConstants kPlaceholderFavActivitiesString]];
         } else if (textView == self.favPlacesTextView) {
-            [textView setText:kDefaultFavPlacesString];
+            [textView setText:[VLConstants kPlaceholderFavPlacesString]];
         }
         [textView setTextColor:[UIColor lightGrayColor]];
         [textView setNeedsDisplay];
@@ -177,5 +172,19 @@ NSString * const kDefaultFavActivitiesString = @"#NicksCafe #EatonCanyon #SFFarm
 }
 
 - (IBAction)useCurrentLocation:(id)sender {
+    NSLog(@"useCurrentLocation");
+    if (self.currentLocationButton.selected) {
+        [self.currentLocationButton setSelected:NO];
+    } else {
+        [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+            if (!error) {
+                NSLog(@"User's home location is at %f, %f", geoPoint.latitude, geoPoint.longitude);
+                
+                [self.currentUser setObject:geoPoint forKey:[VLConstants kHomeLocationKey]];
+                [self.currentUser saveInBackground];
+                [self.currentLocationButton setSelected:YES];
+            }
+        }];
+    }
 }
 @end

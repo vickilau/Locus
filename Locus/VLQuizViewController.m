@@ -8,9 +8,6 @@
 
 #import "VLQuizViewController.h"
 
-NSString *kDefaultTravelStyle = @"You are the all-around traveler! You are an adventurous, exciting person who loves meeting new people and lives on adrenaline rushes. You explore busy cultural bazaars one day and go hiking the next. You enjoy a nice, calm dinner one night and party like crazy the next. Nevertheless, you value time for yourself to relax and enjoy a good book once in a while.";
-NSString *kTravelStyleKey = @"travelStyle";
-
 @implementation VLQuizViewController
 
 - (instancetype)init {
@@ -18,6 +15,8 @@ NSString *kTravelStyleKey = @"travelStyle";
         _index = 0;
         _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
         _currentImageView = [[UIImageView alloc] initWithImage:[self imageAtIndex:_index] highlightedImage:[self imageAtIndex:_index]];
+        [_currentImageView setContentMode:UIViewContentModeScaleAspectFill];
+        [_currentImageView setClipsToBounds:YES];
         _dislikeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _travelStyleBlurb = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -49,13 +48,13 @@ NSString *kTravelStyleKey = @"travelStyle";
     
     [self.travelStyleBlurb setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle3]];
     [self.travelStyleBlurb setTextColor:[UIColor blackColor]];
-    [self.travelStyleBlurb setText:kDefaultTravelStyle];
+    [self.travelStyleBlurb setText:[VLConstants kDefaultTravelStyle]];
     [self.travelStyleBlurb setClipsToBounds:YES];
     [_travelStyleBlurb setTextContainerInset:UIEdgeInsetsMake(5, 5, 5, 5)];
     [VLUtilities makeRound:self.travelStyleBlurb];
     
     PFUser *currentUser = [PFUser currentUser];
-    [currentUser setObject:kDefaultTravelStyle forKey:kTravelStyleKey];
+    [currentUser setObject:[VLConstants kDefaultTravelStyle] forKey:[VLConstants kTravelStyleKey]];
     [[PFUser currentUser] saveInBackground];
     
     UISwipeGestureRecognizer *swipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeftGesture:)];

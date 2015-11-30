@@ -10,6 +10,8 @@
 
 #import <Parse/Parse.h>
 
+#import "VLConstants.h"
+#import "VLData.h"
 #import "VLLocalProfileTableViewController.h"
 #import "VLLocalTableViewCell.h"
 

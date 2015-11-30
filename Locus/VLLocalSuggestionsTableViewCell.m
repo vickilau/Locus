@@ -24,7 +24,7 @@
     
     CGFloat mainRowHeight = self.frame.size.height - 30;
 
-    [self.suggestionImageView setFrame:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
+    [self.suggestionImageView setFrame:CGRectMake(0, (self.frame.size.height - (self.frame.size.width * 0.4))/2, self.frame.size.width * 0.4, self.frame.size.width * 0.4)];
 
     CGFloat rowWidth = self.frame.size.width - CGRectGetMaxX(self.suggestionImageView.frame) - 15;
 
@@ -48,6 +48,8 @@
     [_suggestionRating setMaxRating:5];
     
     _suggestionImageView = [[UIImageView alloc] init];
+    [_suggestionImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [_suggestionImageView setClipsToBounds:YES];
     
     _suggestionLabel = [[UILabel alloc] init];
     [_suggestionLabel setTextColor:[UIColor colorWithRed:153.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0]];
@@ -59,6 +61,9 @@
     
     _addSuggestion = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [_addSuggestion addTarget:self action:@selector(addSuggestion:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _commentsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_commentsButton addTarget:self action:@selector(showComments:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)addPropertiesAsSubviews {
@@ -67,10 +72,10 @@
     [self.contentView addSubview:_suggestionRating];
     [self.contentView addSubview:_suggestionNote];
     [self.contentView addSubview:_addSuggestion];
+    [self.contentView addSubview:_commentsButton];
 }
 
 - (void)addSuggestion:(id)sender {
-    UIButton *buttonClicked = (UIButton *)sender;
     NSString *suggestion = [[NSString alloc] init];
     suggestion = [@"Location: " stringByAppendingString:[[_suggestionLabel.text stringByAppendingString:@"\nLocal's Note: "] stringByAppendingString:_suggestionNote.text]];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add To My Itinerary"
@@ -81,33 +86,37 @@
     UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction * action) {
                                                            NSString *note = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-                                                           NSMutableArray *activityNotes = [self.currentUser objectForKey:@"activityNote"];
+                                                           NSMutableArray *activityNotes = [self.currentUser objectForKey:[VLConstants kActivityNoteArrayKey]];
                                                            if (activityNotes) {
                                                                [activityNotes addObject:note];
                                                            } else {
                                                                activityNotes = [[NSMutableArray alloc] initWithObjects:note, nil];
                                                            }
-                                                           [self.currentUser setObject:activityNotes forKey:@"activityNote"];
+                                                           [self.currentUser setObject:activityNotes forKey:[VLConstants kActivityNoteArrayKey]];
                                                            
-                                                           NSMutableArray *itinerary = [self.currentUser objectForKey:@"itinerary"];
+                                                           NSMutableArray *itinerary = [self.currentUser objectForKey:[VLConstants kItineraryArrayKey]];
                                                            if (itinerary) {
-                                                               [itinerary addObject:suggestion];
+                                                               [itinerary addObject:_suggestionLabel.text];
                                                            } else {
-                                                               itinerary = [[NSMutableArray alloc] initWithObjects:suggestion, nil];
+                                                               itinerary = [[NSMutableArray alloc] initWithObjects:_suggestionLabel.text, nil];
                                                            }
-                                                           [self.currentUser setObject:itinerary forKey:@"itinerary"];
+                                                           [self.currentUser setObject:itinerary forKey:[VLConstants kItineraryArrayKey]];
+                                                           
                                                            [self.currentUser saveInBackground];
                                                        }];
     
     [alert addAction:saveAction];
     [alert addAction:cancelAction];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = NSLocalizedString(@"Add your notes about this activity.", @"Add your notes about this activity.");
+        [textField setPlaceholder:[VLConstants kPlaceholderSaveActivityNoteString]];
     }];
     
     id<VLLocalSuggestionsTableViewCellDelegate> strongDelegate = self.delegate;
     [strongDelegate didAddToItinerary:alert];
 }
 
+- (void)showComments {
+    
+}
 
 @end

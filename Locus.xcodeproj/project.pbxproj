@@ -18,7 +18,6 @@
 		2F08DF141C06CBF3005C581F /* VLLocalProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F08DF131C06CBF3005C581F /* VLLocalProfileTableViewController.m */; };
 		2F08DF171C06CC9B005C581F /* VLLocalProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F08DF161C06CC9B005C581F /* VLLocalProfileTableViewCell.m */; };
 		2F08DF1A1C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F08DF191C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m */; };
-		2F08DF1D1C06D0AA005C581F /* VLConnectLocalsErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F08DF1C1C06D0AA005C581F /* VLConnectLocalsErrorViewController.m */; };
 		2F17A0581C0504DE0086C4C8 /* VLPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F17A0571C0504DE0086C4C8 /* VLPageViewController.m */; };
 		2F2058231BFECFC600ECE1AD /* woman.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2058221BFECFC600ECE1AD /* woman.png */; };
 		2F2058271BFED0FC00ECE1AD /* quiz.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2058261BFED0FC00ECE1AD /* quiz.png */; };
@@ -55,6 +54,31 @@
 		2F9AE4F21C07D8A7008E3E4F /* fullHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE4EF1C07D8A7008E3E4F /* fullHeart.png */; };
 		2F9AE4F51C07FD51008E3E4F /* VLItineraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AE4F41C07FD51008E3E4F /* VLItineraryTableViewController.m */; };
 		2F9AE4F81C07FD96008E3E4F /* VLItineraryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AE4F71C07FD96008E3E4F /* VLItineraryTableViewCell.m */; };
+		2F9AE4FF1C081552008E3E4F /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE4FD1C081552008E3E4F /* check.png */; };
+		2F9AE5001C081552008E3E4F /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE4FE1C081552008E3E4F /* cross.png */; };
+		2F9AE5061C094E1C008E3E4F /* VLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AE5051C094E1C008E3E4F /* VLData.m */; };
+		2F9AE5091C0957E8008E3E4F /* Vicki.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5081C0957E8008E3E4F /* Vicki.jpeg */; };
+		2F9AE50C1C095870008E3E4F /* Anwesha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE50A1C095870008E3E4F /* Anwesha.jpg */; };
+		2F9AE50D1C095870008E3E4F /* Gautam.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE50B1C095870008E3E4F /* Gautam.jpg */; };
+		2F9AE50F1C0958BA008E3E4F /* Erin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE50E1C0958BA008E3E4F /* Erin.jpg */; };
+		2F9AE5201C095EFB008E3E4F /* icecream.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5101C095EFB008E3E4F /* icecream.jpeg */; };
+		2F9AE5211C095EFB008E3E4F /* meeting.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5111C095EFB008E3E4F /* meeting.jpg */; };
+		2F9AE5221C095EFB008E3E4F /* studio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5121C095EFB008E3E4F /* studio.jpg */; };
+		2F9AE5231C095EFB008E3E4F /* lecture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5131C095EFB008E3E4F /* lecture.jpg */; };
+		2F9AE5241C095EFB008E3E4F /* falafel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5141C095EFB008E3E4F /* falafel.jpg */; };
+		2F9AE5251C095EFB008E3E4F /* ballet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5151C095EFB008E3E4F /* ballet.jpg */; };
+		2F9AE5261C095EFB008E3E4F /* milliesHut.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5161C095EFB008E3E4F /* milliesHut.jpeg */; };
+		2F9AE5271C095EFB008E3E4F /* landsEnd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5171C095EFB008E3E4F /* landsEnd.jpg */; };
+		2F9AE5281C095EFB008E3E4F /* cityLights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5181C095EFB008E3E4F /* cityLights.jpg */; };
+		2F9AE5291C095EFB008E3E4F /* redBeach.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE5191C095EFB008E3E4F /* redBeach.jpeg */; };
+		2F9AE52A1C095EFB008E3E4F /* aerLounge.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51A1C095EFB008E3E4F /* aerLounge.jpeg */; };
+		2F9AE52B1C095EFB008E3E4F /* elysianPark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51B1C095EFB008E3E4F /* elysianPark.jpeg */; };
+		2F9AE52C1C095EFB008E3E4F /* veniceBeach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51C1C095EFB008E3E4F /* veniceBeach.jpg */; };
+		2F9AE52D1C095EFB008E3E4F /* nicksCafe.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51D1C095EFB008E3E4F /* nicksCafe.jpeg */; };
+		2F9AE52E1C095EFB008E3E4F /* javaCafe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51E1C095EFB008E3E4F /* javaCafe.jpg */; };
+		2F9AE52F1C095EFB008E3E4F /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE51F1C095EFB008E3E4F /* waterfall.jpg */; };
+		2F9AE5361C096789008E3E4F /* VLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9AE5351C096789008E3E4F /* VLConstants.m */; };
+		2FA3F80A1C0BDF000059A5F5 /* VLSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */; };
 		2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCC119D1BFED9E300E28FBD /* defaultPic.png */; };
 		2FD4CF911BFD000B00906CC7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */; };
 		2FD4CF931BFD005F00906CC7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */; };
@@ -74,6 +98,8 @@
 		2FDC92371BFC7503007468D1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDC92361BFC7503007468D1 /* libz.tbd */; };
 		2FDC92391BFC750E007468D1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDC92381BFC750E007468D1 /* libsqlite3.tbd */; };
 		2FDC92421BFC77E7007468D1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDC92411BFC77E7007468D1 /* FBSDKCoreKit.framework */; };
+		2FF50B4F1C0A38ED00902552 /* VLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF50B4E1C0A38ED00902552 /* VLMessageViewController.m */; };
+		2FF50B591C0AC69300902552 /* VLItineraryCompletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF50B581C0AC69300902552 /* VLItineraryCompletionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +138,6 @@
 		2F08DF161C06CC9B005C581F /* VLLocalProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLocalProfileTableViewCell.m; sourceTree = "<group>"; };
 		2F08DF181C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLocalSuggestionsTableViewCell.h; sourceTree = "<group>"; };
 		2F08DF191C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLocalSuggestionsTableViewCell.m; sourceTree = "<group>"; };
-		2F08DF1B1C06D0AA005C581F /* VLConnectLocalsErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLConnectLocalsErrorViewController.h; sourceTree = "<group>"; };
-		2F08DF1C1C06D0AA005C581F /* VLConnectLocalsErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLConnectLocalsErrorViewController.m; sourceTree = "<group>"; };
 		2F17A0561C0504DE0086C4C8 /* VLPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPageViewController.h; sourceTree = "<group>"; };
 		2F17A0571C0504DE0086C4C8 /* VLPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPageViewController.m; sourceTree = "<group>"; };
 		2F2058221BFECFC600ECE1AD /* woman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman.png; sourceTree = "<group>"; };
@@ -167,6 +191,34 @@
 		2F9AE4F41C07FD51008E3E4F /* VLItineraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLItineraryTableViewController.m; sourceTree = "<group>"; };
 		2F9AE4F61C07FD96008E3E4F /* VLItineraryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLItineraryTableViewCell.h; sourceTree = "<group>"; };
 		2F9AE4F71C07FD96008E3E4F /* VLItineraryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLItineraryTableViewCell.m; sourceTree = "<group>"; };
+		2F9AE4FD1C081552008E3E4F /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		2F9AE4FE1C081552008E3E4F /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		2F9AE5041C094E1C008E3E4F /* VLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLData.h; sourceTree = "<group>"; };
+		2F9AE5051C094E1C008E3E4F /* VLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLData.m; sourceTree = "<group>"; };
+		2F9AE5081C0957E8008E3E4F /* Vicki.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Vicki.jpeg; sourceTree = "<group>"; };
+		2F9AE50A1C095870008E3E4F /* Anwesha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Anwesha.jpg; sourceTree = "<group>"; };
+		2F9AE50B1C095870008E3E4F /* Gautam.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gautam.jpg; sourceTree = "<group>"; };
+		2F9AE50E1C0958BA008E3E4F /* Erin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Erin.jpg; sourceTree = "<group>"; };
+		2F9AE5101C095EFB008E3E4F /* icecream.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icecream.jpeg; sourceTree = "<group>"; };
+		2F9AE5111C095EFB008E3E4F /* meeting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = meeting.jpg; sourceTree = "<group>"; };
+		2F9AE5121C095EFB008E3E4F /* studio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = studio.jpg; sourceTree = "<group>"; };
+		2F9AE5131C095EFB008E3E4F /* lecture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lecture.jpg; sourceTree = "<group>"; };
+		2F9AE5141C095EFB008E3E4F /* falafel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = falafel.jpg; sourceTree = "<group>"; };
+		2F9AE5151C095EFB008E3E4F /* ballet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballet.jpg; sourceTree = "<group>"; };
+		2F9AE5161C095EFB008E3E4F /* milliesHut.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = milliesHut.jpeg; sourceTree = "<group>"; };
+		2F9AE5171C095EFB008E3E4F /* landsEnd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = landsEnd.jpg; sourceTree = "<group>"; };
+		2F9AE5181C095EFB008E3E4F /* cityLights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cityLights.jpg; sourceTree = "<group>"; };
+		2F9AE5191C095EFB008E3E4F /* redBeach.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redBeach.jpeg; sourceTree = "<group>"; };
+		2F9AE51A1C095EFB008E3E4F /* aerLounge.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aerLounge.jpeg; sourceTree = "<group>"; };
+		2F9AE51B1C095EFB008E3E4F /* elysianPark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = elysianPark.jpeg; sourceTree = "<group>"; };
+		2F9AE51C1C095EFB008E3E4F /* veniceBeach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = veniceBeach.jpg; sourceTree = "<group>"; };
+		2F9AE51D1C095EFB008E3E4F /* nicksCafe.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nicksCafe.jpeg; sourceTree = "<group>"; };
+		2F9AE51E1C095EFB008E3E4F /* javaCafe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = javaCafe.jpg; sourceTree = "<group>"; };
+		2F9AE51F1C095EFB008E3E4F /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
+		2F9AE5341C096789008E3E4F /* VLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLConstants.h; sourceTree = "<group>"; };
+		2F9AE5351C096789008E3E4F /* VLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLConstants.m; sourceTree = "<group>"; };
+		2FA3F8081C0BDF000059A5F5 /* VLSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLSignupViewController.h; sourceTree = "<group>"; };
+		2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLSignupViewController.m; sourceTree = "<group>"; };
 		2FCC119D1BFED9E300E28FBD /* defaultPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPic.png; sourceTree = "<group>"; };
 		2FD4CF8F1BFD000B00906CC7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		2FD4CF921BFD005F00906CC7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -187,6 +239,10 @@
 		2FDC92361BFC7503007468D1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2FDC92381BFC750E007468D1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2FDC92411BFC77E7007468D1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../Downloads/FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		2FF50B4D1C0A38ED00902552 /* VLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLMessageViewController.h; sourceTree = "<group>"; };
+		2FF50B4E1C0A38ED00902552 /* VLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLMessageViewController.m; sourceTree = "<group>"; };
+		2FF50B571C0AC69300902552 /* VLItineraryCompletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLItineraryCompletionViewController.h; sourceTree = "<group>"; };
+		2FF50B581C0AC69300902552 /* VLItineraryCompletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLItineraryCompletionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +289,7 @@
 		2F31FB631BF2D8CD00103C8A = {
 			isa = PBXGroup;
 			children = (
+				2F9AE5071C09577E008E3E4F /* LocalsImages */,
 				2F4DA7E11C0560AD004D5431 /* StyleImages */,
 				2FDC923C1BFC775F007468D1 /* IconImages */,
 				2FDC923B1BFC7751007468D1 /* Frameworks */,
@@ -260,43 +317,17 @@
 				2F31FB731BF2D8CE00103C8A /* AppDelegate.m */,
 				2F31FB7E1BF2D8CE00103C8A /* Assets.xcassets */,
 				2F31FB831BF2D8CE00103C8A /* Info.plist */,
+				2FF50B521C0A3B4300902552 /* ItineraryTab */,
 				2F31FB7B1BF2D8CE00103C8A /* Locus.xcdatamodeld */,
 				2F31FB781BF2D8CE00103C8A /* Main.storyboard */,
+				2FF50B511C0A3B2400902552 /* MainVCs */,
+				2FF50B491C0A385400902552 /* MessageVCs */,
+				2FF50B531C0A3B5C00902552 /* ProfileTab */,
+				2FF50B541C0A3B7100902552 /* StyleTab */,
 				2F31FB6F1BF2D8CE00103C8A /* Supporting Files */,
-				2F08DF1B1C06D0AA005C581F /* VLConnectLocalsErrorViewController.h */,
-				2F08DF1C1C06D0AA005C581F /* VLConnectLocalsErrorViewController.m */,
-				2F9AE4F31C07FD51008E3E4F /* VLItineraryTableViewController.h */,
-				2F9AE4F41C07FD51008E3E4F /* VLItineraryTableViewController.m */,
-				2F31FBD81BF3059E00103C8A /* VLLabel.h */,
-				2F31FBD91BF3059E00103C8A /* VLLabel.m */,
-				2F08DF151C06CC9B005C581F /* VLLocalProfileTableViewCell.h */,
-				2F08DF161C06CC9B005C581F /* VLLocalProfileTableViewCell.m */,
-				2F08DF121C06CBF3005C581F /* VLLocalProfileTableViewController.h */,
-				2F08DF131C06CBF3005C581F /* VLLocalProfileTableViewController.m */,
-				2F08DF181C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.h */,
-				2F08DF191C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m */,
-				2F08DEEE1C0653A2005C581F /* VLLocalTableViewCell.h */,
-				2F08DEEF1C0653A2005C581F /* VLLocalTableViewCell.m */,
-				2F08DF001C066A8E005C581F /* VLLocalTableViewController.h */,
-				2F08DF011C066A8E005C581F /* VLLocalTableViewController.m */,
-				2F7BABC21BFD428C008C2F2B /* VLLoginViewController.h */,
-				2F7BABC31BFD428C008C2F2B /* VLLoginViewController.m */,
-				2FD4CF961BFD33E200906CC7 /* VLMainViewController.h */,
-				2FD4CF971BFD33E200906CC7 /* VLMainViewController.m */,
-				2F17A0561C0504DE0086C4C8 /* VLPageViewController.h */,
-				2F17A0571C0504DE0086C4C8 /* VLPageViewController.m */,
-				2F7BABCD1BFDA7ED008C2F2B /* VLProfileTableViewController.h */,
-				2F7BABCE1BFDA7ED008C2F2B /* VLProfileTableViewController.m */,
-				2F4DA7F71C058999004D5431 /* VLQuizViewController.h */,
-				2F4DA7F81C058999004D5431 /* VLQuizViewController.m */,
-				2F4DA7FE1C062CDE004D5431 /* VLTravelStyleViewController.h */,
-				2F4DA7FF1C062CDE004D5431 /* VLTravelStyleViewController.m */,
-				2F8C7C8B1BFE762B003E6314 /* VLTripTableViewController.h */,
-				2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */,
-				2F08DF091C068D8E005C581F /* VLUtilities.h */,
-				2F08DF0A1C068D8E005C581F /* VLUtilities.m */,
-				2F9AE4F61C07FD96008E3E4F /* VLItineraryTableViewCell.h */,
-				2F9AE4F71C07FD96008E3E4F /* VLItineraryTableViewCell.m */,
+				2FF50B551C0A3B7B00902552 /* TripTab */,
+				2FF50B501C0A3AE300902552 /* Utilities */,
+				2FF50B561C0A3BB600902552 /* ConnectTab */,
 			);
 			path = Locus;
 			sourceTree = "<group>";
@@ -345,6 +376,33 @@
 			name = StyleImages;
 			sourceTree = "<group>";
 		};
+		2F9AE5071C09577E008E3E4F /* LocalsImages */ = {
+			isa = PBXGroup;
+			children = (
+				2F9AE5081C0957E8008E3E4F /* Vicki.jpeg */,
+				2F9AE50A1C095870008E3E4F /* Anwesha.jpg */,
+				2F9AE50B1C095870008E3E4F /* Gautam.jpg */,
+				2F9AE50E1C0958BA008E3E4F /* Erin.jpg */,
+				2F9AE5101C095EFB008E3E4F /* icecream.jpeg */,
+				2F9AE5111C095EFB008E3E4F /* meeting.jpg */,
+				2F9AE5121C095EFB008E3E4F /* studio.jpg */,
+				2F9AE5131C095EFB008E3E4F /* lecture.jpg */,
+				2F9AE5141C095EFB008E3E4F /* falafel.jpg */,
+				2F9AE5151C095EFB008E3E4F /* ballet.jpg */,
+				2F9AE5161C095EFB008E3E4F /* milliesHut.jpeg */,
+				2F9AE5171C095EFB008E3E4F /* landsEnd.jpg */,
+				2F9AE5181C095EFB008E3E4F /* cityLights.jpg */,
+				2F9AE5191C095EFB008E3E4F /* redBeach.jpeg */,
+				2F9AE51A1C095EFB008E3E4F /* aerLounge.jpeg */,
+				2F9AE51B1C095EFB008E3E4F /* elysianPark.jpeg */,
+				2F9AE51C1C095EFB008E3E4F /* veniceBeach.jpg */,
+				2F9AE51D1C095EFB008E3E4F /* nicksCafe.jpeg */,
+				2F9AE51E1C095EFB008E3E4F /* javaCafe.jpg */,
+				2F9AE51F1C095EFB008E3E4F /* waterfall.jpg */,
+			);
+			name = LocalsImages;
+			sourceTree = "<group>";
+		};
 		2FDC923B1BFC7751007468D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +434,8 @@
 				2F9AE4EF1C07D8A7008E3E4F /* fullHeart.png */,
 				2F2058221BFECFC600ECE1AD /* woman.png */,
 				2FDC92201BFC72DC007468D1 /* logo.png */,
+				2F9AE4FD1C081552008E3E4F /* check.png */,
+				2F9AE4FE1C081552008E3E4F /* cross.png */,
 				2F7BABCB1BFD9B7A008C2F2B /* background.jpg */,
 				2F2058261BFED0FC00ECE1AD /* quiz.png */,
 				2F20582A1BFED1E200ECE1AD /* itinerary.png */,
@@ -391,6 +451,104 @@
 				2F08DEFB1C0664EC005C581F /* viewProfile.png */,
 			);
 			name = IconImages;
+			sourceTree = "<group>";
+		};
+		2FF50B491C0A385400902552 /* MessageVCs */ = {
+			isa = PBXGroup;
+			children = (
+				2FF50B4D1C0A38ED00902552 /* VLMessageViewController.h */,
+				2FF50B4E1C0A38ED00902552 /* VLMessageViewController.m */,
+			);
+			name = MessageVCs;
+			sourceTree = "<group>";
+		};
+		2FF50B501C0A3AE300902552 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F31FBD81BF3059E00103C8A /* VLLabel.h */,
+				2F31FBD91BF3059E00103C8A /* VLLabel.m */,
+				2F9AE5341C096789008E3E4F /* VLConstants.h */,
+				2F9AE5351C096789008E3E4F /* VLConstants.m */,
+				2F9AE5041C094E1C008E3E4F /* VLData.h */,
+				2F9AE5051C094E1C008E3E4F /* VLData.m */,
+				2F08DF091C068D8E005C581F /* VLUtilities.h */,
+				2F08DF0A1C068D8E005C581F /* VLUtilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		2FF50B511C0A3B2400902552 /* MainVCs */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BABC21BFD428C008C2F2B /* VLLoginViewController.h */,
+				2F7BABC31BFD428C008C2F2B /* VLLoginViewController.m */,
+				2FD4CF961BFD33E200906CC7 /* VLMainViewController.h */,
+				2FD4CF971BFD33E200906CC7 /* VLMainViewController.m */,
+				2F17A0561C0504DE0086C4C8 /* VLPageViewController.h */,
+				2F17A0571C0504DE0086C4C8 /* VLPageViewController.m */,
+				2FA3F8081C0BDF000059A5F5 /* VLSignupViewController.h */,
+				2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */,
+			);
+			name = MainVCs;
+			sourceTree = "<group>";
+		};
+		2FF50B521C0A3B4300902552 /* ItineraryTab */ = {
+			isa = PBXGroup;
+			children = (
+				2F9AE4F61C07FD96008E3E4F /* VLItineraryTableViewCell.h */,
+				2F9AE4F71C07FD96008E3E4F /* VLItineraryTableViewCell.m */,
+				2F9AE4F31C07FD51008E3E4F /* VLItineraryTableViewController.h */,
+				2F9AE4F41C07FD51008E3E4F /* VLItineraryTableViewController.m */,
+				2FF50B571C0AC69300902552 /* VLItineraryCompletionViewController.h */,
+				2FF50B581C0AC69300902552 /* VLItineraryCompletionViewController.m */,
+			);
+			name = ItineraryTab;
+			sourceTree = "<group>";
+		};
+		2FF50B531C0A3B5C00902552 /* ProfileTab */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BABCD1BFDA7ED008C2F2B /* VLProfileTableViewController.h */,
+				2F7BABCE1BFDA7ED008C2F2B /* VLProfileTableViewController.m */,
+			);
+			name = ProfileTab;
+			sourceTree = "<group>";
+		};
+		2FF50B541C0A3B7100902552 /* StyleTab */ = {
+			isa = PBXGroup;
+			children = (
+				2F4DA7FE1C062CDE004D5431 /* VLTravelStyleViewController.h */,
+				2F4DA7FF1C062CDE004D5431 /* VLTravelStyleViewController.m */,
+				2F4DA7F71C058999004D5431 /* VLQuizViewController.h */,
+				2F4DA7F81C058999004D5431 /* VLQuizViewController.m */,
+			);
+			name = StyleTab;
+			sourceTree = "<group>";
+		};
+		2FF50B551C0A3B7B00902552 /* TripTab */ = {
+			isa = PBXGroup;
+			children = (
+				2F8C7C8B1BFE762B003E6314 /* VLTripTableViewController.h */,
+				2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */,
+			);
+			name = TripTab;
+			sourceTree = "<group>";
+		};
+		2FF50B561C0A3BB600902552 /* ConnectTab */ = {
+			isa = PBXGroup;
+			children = (
+				2F08DF151C06CC9B005C581F /* VLLocalProfileTableViewCell.h */,
+				2F08DF161C06CC9B005C581F /* VLLocalProfileTableViewCell.m */,
+				2F08DF121C06CBF3005C581F /* VLLocalProfileTableViewController.h */,
+				2F08DF131C06CBF3005C581F /* VLLocalProfileTableViewController.m */,
+				2F08DF181C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.h */,
+				2F08DF191C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m */,
+				2F08DEEE1C0653A2005C581F /* VLLocalTableViewCell.h */,
+				2F08DEEF1C0653A2005C581F /* VLLocalTableViewCell.m */,
+				2F08DF001C066A8E005C581F /* VLLocalTableViewController.h */,
+				2F08DF011C066A8E005C581F /* VLLocalTableViewController.m */,
+			);
+			name = ConnectTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,32 +654,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9AE50D1C095870008E3E4F /* Gautam.jpg in Resources */,
 				2F08DEF81C06578E005C581F /* emptyStar.png in Resources */,
+				2F9AE52E1C095EFB008E3E4F /* javaCafe.jpg in Resources */,
 				2F31FB7F1BF2D8CE00103C8A /* Assets.xcassets in Resources */,
+				2F9AE5271C095EFB008E3E4F /* landsEnd.jpg in Resources */,
+				2F9AE52D1C095EFB008E3E4F /* nicksCafe.jpeg in Resources */,
 				2F4DA7F11C0560C0004D5431 /* outdoorbazaar.jpeg in Resources */,
 				2F4DA7FD1C0599DE004D5431 /* right.png in Resources */,
+				2F9AE5241C095EFB008E3E4F /* falafel.jpg in Resources */,
 				2F9AE4F01C07D8A7008E3E4F /* emptyHeart.png in Resources */,
+				2F9AE5201C095EFB008E3E4F /* icecream.jpeg in Resources */,
 				2F4DA7F01C0560C0004D5431 /* hiking.jpeg in Resources */,
+				2F9AE52A1C095EFB008E3E4F /* aerLounge.jpeg in Resources */,
+				2F9AE4FF1C081552008E3E4F /* check.png in Resources */,
 				2F4DA7EE1C0560C0004D5431 /* dining.jpeg in Resources */,
 				2F9AE4F11C07D8A7008E3E4F /* halfHeart.png in Resources */,
+				2F9AE5231C095EFB008E3E4F /* lecture.jpg in Resources */,
+				2F9AE52F1C095EFB008E3E4F /* waterfall.jpg in Resources */,
+				2F9AE5251C095EFB008E3E4F /* ballet.jpg in Resources */,
+				2F9AE50C1C095870008E3E4F /* Anwesha.jpg in Resources */,
 				2F08DEFA1C06578E005C581F /* halfStar.png in Resources */,
 				2F4DA7F31C0560C0004D5431 /* reading.jpg in Resources */,
+				2F9AE5211C095EFB008E3E4F /* meeting.jpg in Resources */,
+				2F9AE5001C081552008E3E4F /* cross.png in Resources */,
 				2F4DA7FC1C0599DE004D5431 /* left.png in Resources */,
+				2F9AE52B1C095EFB008E3E4F /* elysianPark.jpeg in Resources */,
 				2F4DA7ED1C0560C0004D5431 /* cliffdiving.jpg in Resources */,
 				2F9AE4F21C07D8A7008E3E4F /* fullHeart.png in Resources */,
 				2F2058231BFECFC600ECE1AD /* woman.png in Resources */,
 				2F4DA7F21C0560C0004D5431 /* party.jpeg in Resources */,
+				2F9AE52C1C095EFB008E3E4F /* veniceBeach.jpg in Resources */,
+				2F9AE5281C095EFB008E3E4F /* cityLights.jpg in Resources */,
 				2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */,
 				2F4DA7EB1C0560C0004D5431 /* bar.jpg in Resources */,
 				2F2058291BFED16D00ECE1AD /* locals.png in Resources */,
+				2F9AE50F1C0958BA008E3E4F /* Erin.jpg in Resources */,
+				2F9AE5091C0957E8008E3E4F /* Vicki.jpeg in Resources */,
 				2F2058271BFED0FC00ECE1AD /* quiz.png in Resources */,
 				2F4DA7EC1C0560C0004D5431 /* beach.jpeg in Resources */,
+				2F9AE5261C095EFB008E3E4F /* milliesHut.jpeg in Resources */,
 				2F7BABCC1BFD9B7A008C2F2B /* background.jpg in Resources */,
 				2F4DA7EF1C0560C0004D5431 /* eiffeltower.jpg in Resources */,
 				2F31FB7A1BF2D8CE00103C8A /* Main.storyboard in Resources */,
 				2F08DEFC1C0664EC005C581F /* viewProfile.png in Resources */,
 				2F4DA7E01C051FC5004D5431 /* logout.png in Resources */,
+				2F9AE5221C095EFB008E3E4F /* studio.jpg in Resources */,
 				2F08DEF91C06578E005C581F /* fullStar.png in Resources */,
+				2F9AE5291C095EFB008E3E4F /* redBeach.jpeg in Resources */,
 				2F20582D1BFED1EA00ECE1AD /* travel.png in Resources */,
 				2F20582B1BFED1E200ECE1AD /* itinerary.png in Resources */,
 				2FDC92211BFC72DC007468D1 /* logo.png in Resources */,
@@ -558,16 +738,20 @@
 				2F31FB711BF2D8CE00103C8A /* main.m in Sources */,
 				2F31FBDA1BF3059E00103C8A /* VLLabel.m in Sources */,
 				2F4DA8001C062CDE004D5431 /* VLTravelStyleViewController.m in Sources */,
+				2FF50B591C0AC69300902552 /* VLItineraryCompletionViewController.m in Sources */,
+				2F9AE5061C094E1C008E3E4F /* VLData.m in Sources */,
 				2F08DF0B1C068D8E005C581F /* VLUtilities.m in Sources */,
+				2F9AE5361C096789008E3E4F /* VLConstants.m in Sources */,
 				2F08DF171C06CC9B005C581F /* VLLocalProfileTableViewCell.m in Sources */,
 				2F08DEF41C0656B2005C581F /* RateView.m in Sources */,
 				2F17A0581C0504DE0086C4C8 /* VLPageViewController.m in Sources */,
 				2F9AE4F51C07FD51008E3E4F /* VLItineraryTableViewController.m in Sources */,
 				2F08DF141C06CBF3005C581F /* VLLocalProfileTableViewController.m in Sources */,
+				2FA3F80A1C0BDF000059A5F5 /* VLSignupViewController.m in Sources */,
+				2FF50B4F1C0A38ED00902552 /* VLMessageViewController.m in Sources */,
 				2F7BABCF1BFDA7ED008C2F2B /* VLProfileTableViewController.m in Sources */,
 				2FD4CF981BFD33E200906CC7 /* VLMainViewController.m in Sources */,
 				2F08DF021C066A8E005C581F /* VLLocalTableViewController.m in Sources */,
-				2F08DF1D1C06D0AA005C581F /* VLConnectLocalsErrorViewController.m in Sources */,
 				2F08DF1A1C06CCAE005C581F /* VLLocalSuggestionsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

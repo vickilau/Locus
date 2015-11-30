@@ -8,6 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/Parse.h>
+
+#import "VLUtilities.h"
+
+@protocol VLItineraryTableViewCellDelegate;
+
 @interface VLItineraryTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<VLItineraryTableViewCellDelegate> delegate;
+
+@property PFUser *currentUser;
+@property UILabel *activityNameLabel;
+@property UILabel *activityNoteLabel;
+@property UIDatePicker *activityWhen;
+@property UIButton *completeButton;
+@property UIImageView *border;
+
+@end
+
+@protocol VLItineraryTableViewCellDelegate <NSObject>
+
+- (void)didClickCompleteActivity:(VLItineraryTableViewCell *)cell;
 
 @end

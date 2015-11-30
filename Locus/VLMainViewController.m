@@ -26,7 +26,7 @@
                             | PFLogInFieldsPasswordForgotten
                             | PFLogInFieldsFacebook)];
         [loginVC setDelegate:self];
-        PFSignUpViewController *signUpVC = [[PFSignUpViewController alloc] init];
+        VLSignupViewController *signUpVC = [[VLSignupViewController alloc] init];
         [signUpVC setDelegate:self];
         [loginVC setSignUpController:signUpVC];
         NSArray *permissions = @[@"public_profile", @"user_photos"];
@@ -38,17 +38,22 @@
 
 - (void)logInViewController:(PFLogInViewController *)controller
                didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:^{
-        UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
-        [self presentViewController:tabBC animated:YES completion:nil];
-    }];
+    UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
+    [tabBC.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+    tabBC.view.frame = self.view.frame;
+    [controller.view addSubview:tabBC.view];
+    [controller addChildViewController:tabBC];
+    [tabBC didMoveToParentViewController:controller];
+
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:^{
-        UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
-        [self presentViewController:tabBC animated:YES completion:nil];
-    }];
+    UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
+    [tabBC.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+    tabBC.view.frame = self.view.frame;
+    [signUpController.view addSubview:tabBC.view];
+    [signUpController addChildViewController:tabBC];
+    [tabBC didMoveToParentViewController:signUpController];
 }
 
 @end

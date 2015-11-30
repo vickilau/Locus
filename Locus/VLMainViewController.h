@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "VLLoginViewController.h"
+#import "VLSignupViewController.h"
 
 @interface VLMainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 

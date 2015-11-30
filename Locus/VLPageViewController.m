@@ -22,7 +22,11 @@
     self.quizVC = [[VLQuizViewController alloc] init];
     self.travelStyleTVC = [[VLTravelStyleViewController alloc] init];
     self.localTVC = [[VLLocalTableViewController alloc] init];
-    self.connectLocalsErrorVC = [[VLConnectLocalsErrorViewController alloc] init];
+    self.itineraryTVC = [[VLItineraryTableViewController alloc] init];
+    self.connectLocalsErrorVC = [[VLMessageViewController alloc] init];
+    [self.connectLocalsErrorVC.message setText:[VLConstants kNeedLocationErrorMessage]];
+    self.emptyItineraryMessageVC = [[VLMessageViewController alloc] init];
+    [self.emptyItineraryMessageVC.message setText:[VLConstants kEmptyItineraryMessage]];
     self.connectLocalsNC = [[UINavigationController alloc] initWithRootViewController:self.localTVC];
     [self.connectLocalsNC setToolbarHidden:YES];
     
@@ -32,6 +36,7 @@
     self.actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [self.actionButton addTarget:self action:@selector(actionButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.logoutButton addTarget:self action:@selector(logoutButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
     [self.logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
     [self.logoutButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
@@ -91,13 +96,20 @@
     } else if ([self.tabBarItem.title isEqualToString:@"Connect"]) {
         [self.pageTitle setText:@"Connect"];
         [self.actionButton setHidden:YES];
-        if ([self.currentUser objectForKey:@"cityField"] && [self.currentUser objectForKey:@"countryField"]) {
+        if ((![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""]) || [self.currentUser objectForKey:[VLConstants kTripLocationKey]]) {
             [self setContainerViewController:self.connectLocalsNC];
         } else {
             [self setContainerViewController:self.connectLocalsErrorVC];
         }
     } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
         [self.pageTitle setText:@"My Itinerary"];
+        [self setEditSaveButton];
+        if ([[self.currentUser objectForKey:[VLConstants kItineraryArrayKey]] count] > 0) {
+            [self setContainerViewController:self.itineraryTVC];
+        } else {
+            [self.itineraryTVC.tableView setBackgroundColor:[UIColor clearColor]];
+            [self setContainerViewController:self.emptyItineraryMessageVC];
+        }
     }
     [self setHeaderElementsLayout];
 }
@@ -136,14 +148,27 @@
             [self.profileTVC editProfileFields];
         } else if ([self.tabBarItem.title isEqualToString:@"Trip"]) {
             [self.tripTVC editTripFields];
+        } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
+            [self.itineraryTVC setEditing:YES];
         }
     } else {
         if ([self.tabBarItem.title isEqualToString:@"Profile"]) {
             [self.profileTVC saveProfileFields];
         } else if ([self.tabBarItem.title isEqualToString:@"Trip"]) {
             [self.tripTVC saveTripFields];
+        } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
+            [self.itineraryTVC setEditing:NO];
+            [self.currentUser saveInBackground];
+
         }
     }
+}
+
+- (void)logoutButtonClicked {
+    [self.tabBarController willMoveToParentViewController:nil];
+    [self.tabBarController.view removeFromSuperview];
+    [self.tabBarController removeFromParentViewController];
+    
 }
 
 - (void)setEditSaveButton {

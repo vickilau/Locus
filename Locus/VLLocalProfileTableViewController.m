@@ -8,10 +8,6 @@
 
 #import "VLLocalProfileTableViewController.h"
 
-NSString *kDefaultAboutMeField = @"I love meeting new people! I was born and raised here and proudly claim that it is the best place ever. I know most people here and can tell you about all the best gems.";
-NSString *kDefaultfavActivitiesField = @"#hiking #scubadiving #reading #eatingIceCream #swimming #painting";
-NSString *kDefaultfavPlacesField = @"#coffeeshops #LACMA #EatonCanyon #DTLA #Chinatown #artsDistrict #VeniceBeach";
-
 @implementation VLLocalProfileTableViewController
 
 - (instancetype) initWithCell:(VLLocalTableViewCell *)cell {
@@ -32,37 +28,35 @@ NSString *kDefaultfavPlacesField = @"#coffeeshops #LACMA #EatonCanyon #DTLA #Chi
     [super loadView];
     
     [self.profileCell.profileImageView setImage:self.localCell.profileImageView.image];
-    //CGFloat randomRating = ((CGFloat)rand() / RAND_MAX) * 5;
+    [self.profileCell.profileImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.profileCell.ratingView setRating:self.localCell.ratingView.rating];
-    int randomAge =  (arc4random() % 21) + 20;
-    NSString *gender = @"Female";
-    [self.profileCell.ageGenderField setText:[[[NSString stringWithFormat:@"%i", randomAge] stringByAppendingString:@", "] stringByAppendingString:gender]];
-    [self.profileCell.locationField setText:[self.currentUser objectForKey:@"cityField"]];
-    [self.profileCell.aboutMeField setText:kDefaultAboutMeField];
-    [self.profileCell.favsField setText:[[kDefaultfavActivitiesField stringByAppendingString:@" "]stringByAppendingString:kDefaultfavPlacesField]];
+    [self.profileCell.ageGenderField setText:[[self.localCell.age stringByAppendingString:@", "] stringByAppendingString:self.localCell.gender]];
+    [self.profileCell.locationField setText:[self.currentUser objectForKey:[VLConstants kCityFieldKey]]];
+    [self.profileCell.aboutMeField setText:self.localCell.aboutMe];
+    [self.profileCell.favsField setText:self.localCell.faves];
 
-    [self.firstSuggestionCell.suggestionImageView setImage:self.localCell.profileImageView.image];
-    [self.firstSuggestionCell.suggestionLabel setText:@"Venice Beach"];
-    [self.firstSuggestionCell.suggestionNote setText:@"Love this place! I come here almost everyday!!!! It's amazing"];
-    [self.firstSuggestionCell.suggestionRating setRating:3.8];
+    [self.firstSuggestionCell.suggestionImageView setImage:[UIImage imageNamed:self.localCell.firstSuggestionImageString]];
+    [self.firstSuggestionCell.suggestionLabel setText:self.localCell.firstSuggestion.text];
+    [self.firstSuggestionCell.suggestionNote setText:self.localCell.firstSuggestionNote.text];
+    [self.firstSuggestionCell.suggestionRating setRating:self.localCell.firstSuggestionRating.rating];
     [self.firstSuggestionCell setDelegate:self];
     
-    [self.secondSuggestionCell.suggestionImageView setImage:self.localCell.profileImageView.image];
-    [self.secondSuggestionCell.suggestionLabel setText:@"Venice Beach"];
-    [self.secondSuggestionCell.suggestionNote setText:@"Love this place! I come here almost everyday!!!! It's amazing"];
-    [self.secondSuggestionCell.suggestionRating setRating:3.8];
+    [self.secondSuggestionCell.suggestionImageView setImage:[UIImage imageNamed:self.localCell.secondSuggestionImageString]];
+    [self.secondSuggestionCell.suggestionLabel setText:self.localCell.secondSuggestion.text];
+    [self.secondSuggestionCell.suggestionNote setText:self.localCell.secondSuggestionNote.text];
+    [self.secondSuggestionCell.suggestionRating setRating:self.localCell.secondSuggestionRating.rating];
     [self.secondSuggestionCell setDelegate:self];
 
-    [self.thirdSuggestionCell.suggestionImageView setImage:self.localCell.profileImageView.image];
-    [self.thirdSuggestionCell.suggestionLabel setText:@"Venice Beach"];
-    [self.thirdSuggestionCell.suggestionNote setText:@"Love this place! I come here almost everyday!!!! It's amazing"];
-    [self.thirdSuggestionCell.suggestionRating setRating:3.8];
+    [self.thirdSuggestionCell.suggestionImageView setImage:[UIImage imageNamed:self.localCell.thirdSuggestionImageString]];
+    [self.thirdSuggestionCell.suggestionLabel setText:self.localCell.thirdSuggestion];
+    [self.thirdSuggestionCell.suggestionNote setText:self.localCell.thirdSuggestionNote];
+    [self.thirdSuggestionCell.suggestionRating setRating:self.localCell.thirdSuggestionRating];
     [self.thirdSuggestionCell setDelegate:self];
     
-    [self.fourthSuggestionCell.suggestionImageView setImage:self.localCell.profileImageView.image];
-    [self.fourthSuggestionCell.suggestionLabel setText:@"Venice Beach"];
-    [self.fourthSuggestionCell.suggestionNote setText:@"Love this place! I come here almost everyday!!!! It's amazing"];
-    [self.fourthSuggestionCell.suggestionRating setRating:3.8];
+    [self.fourthSuggestionCell.suggestionImageView setImage:[UIImage imageNamed:self.localCell.fourthSuggestionImageString]];
+    [self.fourthSuggestionCell.suggestionLabel setText:self.localCell.fourthSuggestion];
+    [self.fourthSuggestionCell.suggestionNote setText:self.localCell.fourthSuggestionNote];
+    [self.fourthSuggestionCell.suggestionRating setRating:self.localCell.fourthSuggestionRating];
     [self.fourthSuggestionCell setDelegate:self];
 }
 
@@ -101,7 +95,7 @@ NSString *kDefaultfavPlacesField = @"#coffeeshops #LACMA #EatonCanyon #DTLA #Chi
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return 300.0f;
-        case 1: return 150.0f;
+        case 1: return 200.0f;
         default: return 0.0f;
     }
 }

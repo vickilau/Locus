@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 
 #import "RateView.h"
+#import "VLConstants.h"
 #import "VLUtilities.h"
 
 @protocol VLLocalSuggestionsTableViewCellDelegate;
@@ -25,6 +26,7 @@
 @property RateView *suggestionRating;
 @property UILabel *suggestionNote;
 @property UIButton *addSuggestion;
+@property UIButton *commentsButton;
 
 @end
 

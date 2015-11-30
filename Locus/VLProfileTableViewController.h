@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+#import "VLConstants.h"
+
 @interface VLProfileTableViewController : UITableViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -23,7 +25,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *aboutMeTextView;
 @property (weak, nonatomic) IBOutlet UITextView *favActivitiesTextView;
 @property (weak, nonatomic) IBOutlet UITextView *favPlacesTextView;
+@property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 
+@property (strong, nonatomic) PFUser *currentUser;
+
+- (IBAction)useCurrentLocation:(id)sender;
 
 - (void)saveProfileFields;
 
