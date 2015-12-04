@@ -31,6 +31,7 @@
 		2F31FB8D1BF2D8CE00103C8A /* LocusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB8C1BF2D8CE00103C8A /* LocusTests.m */; };
 		2F31FB981BF2D8CE00103C8A /* LocusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FB971BF2D8CE00103C8A /* LocusUITests.m */; };
 		2F31FBDA1BF3059E00103C8A /* VLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F31FBD91BF3059E00103C8A /* VLLabel.m */; };
+		2F36E0611C0FE3FE00E61A20 /* VLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F36E0601C0FE3FE00E61A20 /* VLTabBarController.m */; };
 		2F4DA7E01C051FC5004D5431 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4DA7DF1C051FC5004D5431 /* logout.png */; };
 		2F4DA7EB1C0560C0004D5431 /* bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F4DA7E21C0560C0004D5431 /* bar.jpg */; };
 		2F4DA7EC1C0560C0004D5431 /* beach.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F4DA7E31C0560C0004D5431 /* beach.jpeg */; };
@@ -48,6 +49,7 @@
 		2F7BABC41BFD428C008C2F2B /* VLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BABC31BFD428C008C2F2B /* VLLoginViewController.m */; };
 		2F7BABCC1BFD9B7A008C2F2B /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BABCB1BFD9B7A008C2F2B /* background.jpg */; };
 		2F7BABCF1BFDA7ED008C2F2B /* VLProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BABCE1BFDA7ED008C2F2B /* VLProfileTableViewController.m */; };
+		2F8822C11C1185F000936811 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8822C01C1185F000936811 /* profile.png */; };
 		2F8C7C8D1BFE762B003E6314 /* VLTripTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */; };
 		2F9AE4F01C07D8A7008E3E4F /* emptyHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE4ED1C07D8A7008E3E4F /* emptyHeart.png */; };
 		2F9AE4F11C07D8A7008E3E4F /* halfHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9AE4EE1C07D8A7008E3E4F /* halfHeart.png */; };
@@ -164,6 +166,8 @@
 		2F31FB991BF2D8CE00103C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F31FBD81BF3059E00103C8A /* VLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLabel.h; sourceTree = "<group>"; };
 		2F31FBD91BF3059E00103C8A /* VLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLabel.m; sourceTree = "<group>"; };
+		2F36E05F1C0FE3FE00E61A20 /* VLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLTabBarController.h; sourceTree = "<group>"; };
+		2F36E0601C0FE3FE00E61A20 /* VLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLTabBarController.m; sourceTree = "<group>"; };
 		2F4DA7DF1C051FC5004D5431 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		2F4DA7E21C0560C0004D5431 /* bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bar.jpg; sourceTree = "<group>"; };
 		2F4DA7E31C0560C0004D5431 /* beach.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beach.jpeg; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		2F7BABCB1BFD9B7A008C2F2B /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		2F7BABCD1BFDA7ED008C2F2B /* VLProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLProfileTableViewController.h; sourceTree = "<group>"; };
 		2F7BABCE1BFDA7ED008C2F2B /* VLProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLProfileTableViewController.m; sourceTree = "<group>"; };
+		2F8822C01C1185F000936811 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		2F8C7C8B1BFE762B003E6314 /* VLTripTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLTripTableViewController.h; sourceTree = "<group>"; };
 		2F8C7C8C1BFE762B003E6314 /* VLTripTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLTripTableViewController.m; sourceTree = "<group>"; };
 		2F9AE4ED1C07D8A7008E3E4F /* emptyHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyHeart.png; sourceTree = "<group>"; };
@@ -445,6 +450,7 @@
 				2FDC92201BFC72DC007468D1 /* logo.png */,
 				2F9AE4FD1C081552008E3E4F /* check.png */,
 				2F9AE4FE1C081552008E3E4F /* cross.png */,
+				2F8822C01C1185F000936811 /* profile.png */,
 				2F7BABCB1BFD9B7A008C2F2B /* background.jpg */,
 				2F2058261BFED0FC00ECE1AD /* quiz.png */,
 				2F20582A1BFED1E200ECE1AD /* itinerary.png */,
@@ -497,6 +503,8 @@
 				2F17A0571C0504DE0086C4C8 /* VLPageViewController.m */,
 				2FA3F8081C0BDF000059A5F5 /* VLSignupViewController.h */,
 				2FA3F8091C0BDF000059A5F5 /* VLSignupViewController.m */,
+				2F36E05F1C0FE3FE00E61A20 /* VLTabBarController.h */,
+				2F36E0601C0FE3FE00E61A20 /* VLTabBarController.m */,
 			);
 			name = MainVCs;
 			sourceTree = "<group>";
@@ -631,6 +639,7 @@
 				TargetAttributes = {
 					2F31FB6B1BF2D8CE00103C8A = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 3G2Q96J2LW;
 					};
 					2F31FB871BF2D8CE00103C8A = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -702,6 +711,7 @@
 				2F9AE5281C095EFB008E3E4F /* cityLights.jpg in Resources */,
 				2FCC119E1BFED9E300E28FBD /* defaultPic.png in Resources */,
 				2F4DA7EB1C0560C0004D5431 /* bar.jpg in Resources */,
+				2F8822C11C1185F000936811 /* profile.png in Resources */,
 				2F2058291BFED16D00ECE1AD /* locals.png in Resources */,
 				2F9AE50F1C0958BA008E3E4F /* Erin.jpg in Resources */,
 				2F9AE5091C0957E8008E3E4F /* Vicki.jpeg in Resources */,
@@ -750,6 +760,7 @@
 				2F31FB741BF2D8CE00103C8A /* AppDelegate.m in Sources */,
 				2F7BABC41BFD428C008C2F2B /* VLLoginViewController.m in Sources */,
 				2F31FB711BF2D8CE00103C8A /* main.m in Sources */,
+				2F36E0611C0FE3FE00E61A20 /* VLTabBarController.m in Sources */,
 				2F31FBDA1BF3059E00103C8A /* VLLabel.m in Sources */,
 				2F4DA8001C062CDE004D5431 /* VLTravelStyleViewController.m in Sources */,
 				2FF50B591C0AC69300902552 /* VLItineraryCompletionViewController.m in Sources */,
@@ -832,7 +843,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: vickilau@stanford.edu (2NCNCE4GY8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: vickilau@stanford.edu (2NCNCE4GY8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -854,6 +866,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -876,7 +889,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: vickilau@stanford.edu (2NCNCE4GY8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: vickilau@stanford.edu (2NCNCE4GY8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -891,6 +905,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -901,6 +916,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -909,6 +927,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.Locus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -916,6 +936,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -924,6 +947,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs147.vickilau.Locus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

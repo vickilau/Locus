@@ -33,9 +33,9 @@
     
     [self.userRating setFrame:CGRectMake(CGRectGetMaxX(self.userImageView.frame) + 5, CGRectGetMaxY(self.userName.frame) + 5, widthRow, heightSection * 0.1)];
                                        
-    [self.userAgeAndGender setFrame:CGRectMake(CGRectGetMaxX(self.userImageView.frame), CGRectGetMaxY(self.userRating.frame) + 5, widthRow, heightSection * 0.1)];
-
-    [self.userComment setFrame:CGRectMake(CGRectGetMaxX(self.userImageView.frame) + 5, CGRectGetMaxY(self.userAgeAndGender.frame) + 5, widthRow, [VLUtilities getHeightOfLabel:self.userComment width:widthRow])];
+    [self.userAgeAndGender setFrame:CGRectMake(10, CGRectGetMaxY(self.userImageView.frame) + 5, CGRectGetWidth(self.userImageView.frame), heightSection * 0.1)];
+    
+    [self.userComment setFrame:CGRectMake(CGRectGetMaxX(self.userImageView.frame) + 5, CGRectGetMaxY(self.userRating.frame) + 5, widthRow, [VLUtilities getHeightOfLabel:self.userComment width:widthRow])];
 }
 
 - (void)setProperties {

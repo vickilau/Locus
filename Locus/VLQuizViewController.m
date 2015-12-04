@@ -20,6 +20,9 @@
         _dislikeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _travelStyleBlurb = [[UITextView alloc] initWithFrame:CGRectZero];
+        [_travelStyleBlurb setEditable:NO];
+        _dislikeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _likeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         [self.travelStyleBlurb setHidden:YES];
     }
     return self;
@@ -29,22 +32,27 @@
     [super viewDidLoad];
     
     [self.dislikeButton setImage:[UIImage imageNamed:@"left.png"] forState:UIControlStateNormal];
-    [self.dislikeButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-    [self.dislikeButton setTitle:@"Dislike" forState:UIControlStateNormal];
-    [self.dislikeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //[self.dislikeButton setImageEdgeInsets:UIEdgeInsetsMake(0, -50, 0, 0)];
+    //[self.dislikeButton setTitle:@"Dislike" forState:UIControlStateNormal];
+    //[self.dislikeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.dislikeButton setBackgroundColor:[UIColor clearColor]];
-    [self.dislikeButton.titleLabel  setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle2]];
-    [self.dislikeButton setEnabled:NO];
+    //[self.dislikeButton.titleLabel  setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    [self.dislikeButton addTarget:self action:@selector(handleSwipeLeftGesture:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.dislikeButton];
     
     [self.likeButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
-    [self.likeButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-    [self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
-    [self.likeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //[self.likeButton setImageEdgeInsets:UIEdgeInsetsMake(0, -50, 0, 0)];
+    //[self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
+    //[self.likeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.likeButton setBackgroundColor:[UIColor clearColor]];
-    [self.likeButton.titleLabel  setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle2]];
-    [self.likeButton setEnabled:NO];
+    //[self.likeButton.titleLabel  setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+    [self.likeButton addTarget:self action:@selector(handleSwipeRightGesture:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.likeButton];
+    
+    [self.likeLabel setText:@"Like"];
+    [self.view addSubview:self.likeLabel];
+    [self.dislikeLabel setText:@"Dislike"];
+    [self.view addSubview:self.dislikeLabel];
     
     [self.travelStyleBlurb setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle3]];
     [self.travelStyleBlurb setTextColor:[UIColor blackColor]];
@@ -75,8 +83,14 @@
 - (void)viewDidLayoutSubviews {
     [self.currentImageView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 90)];
     [self.progressView setFrame:CGRectMake(0, self.view.bounds.size.height - 20, self.view.bounds.size.width, 30)];
-    [self.dislikeButton setFrame:CGRectMake(30, CGRectGetMaxY(self.currentImageView.frame) + 20, self.view.bounds.size.width/3, 30)];
-    [self.likeButton setFrame:CGRectMake(self.view.bounds.size.width - 10 - (self.view.bounds.size.width/3), CGRectGetMaxY(self.currentImageView.frame) + 20, self.view.bounds.size.width/3, 30)];
+    [self.dislikeButton setFrame:CGRectMake(10, CGRectGetMaxY(self.currentImageView.frame) + 20, self.view.bounds.size.width/5, 30)];
+    CGSize dislikeTextSize = [self.dislikeLabel.text sizeWithAttributes:@{NSFontAttributeName:[self.dislikeLabel font]}];
+    [self.dislikeLabel setFrame:CGRectMake(CGRectGetMaxX(self.dislikeButton.frame) + 10, CGRectGetMaxY(self.currentImageView.frame) + 20, dislikeTextSize.width, 30)];
+    
+    [self.likeButton setFrame:CGRectMake(self.view.bounds.size.width - 10 - (self.view.bounds.size.width/5), CGRectGetMaxY(self.currentImageView.frame) + 20, self.view.bounds.size.width/5, 30)];
+    CGSize likeTextSize = [self.likeLabel.text sizeWithAttributes:@{NSFontAttributeName:[self.likeLabel font]}];
+    [self.likeLabel setFrame:CGRectMake(CGRectGetMinX(self.likeButton.frame) - likeTextSize.width - 10,  CGRectGetMaxY(self.currentImageView.frame) + 20, self.view.bounds.size.width/5, 30)];
+    
     [self.travelStyleBlurb setFrame:CGRectMake(10, self.view.bounds.size.height/2, self.view.bounds.size.width - 20, self.view.bounds.size.height/2 - 10)];
 }
 

@@ -13,7 +13,7 @@
 static NSString *kNeedLocationErrorMessage = @"We cannot connect you with locals without a location. Please set a location for your trip by clicking the \"Trip\" tab and filling in the \"City\" and \"Country\" field or clicking the \"Use Current Location\" button.";
 static NSString *kNoTravelStyleMessage = @"You have not built your travel style yet. Click the \"Build\" button above to get started!";
 static NSString *kTravelStyleInstructionsMessage = @"Doesn't seem right? No problem! Click the \"Build\" button at the top to rebuild your travel style!";
-static NSString *kDefaultTravelStyle = @"You are the all-around traveler! You are an adventurous, exciting person who loves meeting new people and lives on adrenaline rushes. You explore busy cultural bazaars one day and go hiking the next. You enjoy a nice, calm dinner one night and party like crazy the next. Nevertheless, you value time for yourself to relax and enjoy a good book once in a while.";
+static NSString *kDefaultTravelStyle = @"You are the all-around traveler! You are an adventurous, exciting person who loves meeting new people and lives on adrenaline rushes. You explore busy cultural bazaars one day and go hiking the next. You enjoy a nice, calm dinner one night and party like crazy the next. Nevertheless, you value time for yourself to relax once in a while.";
 static NSString *kEmptyItineraryMessage = @"You do not have any saved suggestions in your itinerary! Click on the \"Connect\" tab to search for suggestions.";
 static NSString *kActivityRatingMessage = @"How did you enjoy this suggestion?";
 static NSString *kLocationMessage = @"Locals near you";
@@ -40,6 +40,7 @@ static NSString *kPlaceholderHomeLocationField = @"Los Angeles, CA";
 
 static NSString *kItineraryArrayKey = @"itinerary";
 static NSString *kActivityNoteArrayKey = @"activityNote";
+static NSString *kActivityTimeArrayKey = @"activityTime";
 
 static NSString *kTravelStyleKey = @"travelStyle";
 
@@ -141,6 +142,9 @@ static NSString *kNumAdultsField = @"numAdultsField";
 }
 + (NSString *)kActivityNoteArrayKey {
     return kActivityNoteArrayKey;
+}
++ (NSString *)kActivityTimeArrayKey {
+    return kActivityTimeArrayKey;
 }
 + (NSString *)kTravelStyleKey {
     return kTravelStyleKey;

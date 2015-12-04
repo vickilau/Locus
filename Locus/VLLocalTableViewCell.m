@@ -24,14 +24,15 @@
     
     CGFloat mainRowHeight = (self.frame.size.height - 30) * 0.4;
     CGFloat subRowHeight = (self.frame.size.height - 30) * 0.3;
+    
+    [self.profileImageView setFrame:CGRectMake(10, (self.frame.size.height - (self.frame.size.width * 0.35))/2 - 30, self.frame.size.width * 0.35, self.frame.size.width * 0.35)];
+    [VLUtilities makeCircle:self.profileImageView];
+    [self.viewProfileButton setFrame:CGRectMake(CGRectGetWidth(self.profileImageView.frame)/2 - 5, CGRectGetMaxY(self.profileImageView.frame) + 10, 30, 30)];
+    
     CGFloat rowWidth = self.frame.size.width - CGRectGetMaxX(self.profileImageView.frame) - 15;
     
-    [self.profileImageView setFrame:CGRectMake(10, (self.frame.size.height - (self.frame.size.width * 0.35))/2, self.frame.size.width * 0.35, self.frame.size.width * 0.35)];
-    [VLUtilities makeCircle:self.profileImageView];
-    
-    [self.viewProfileButton setFrame:CGRectMake(self.frame.size.width - 10 - mainRowHeight, 10, mainRowHeight, mainRowHeight)];
-    [self.nameLabel setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 5, 10, rowWidth - CGRectGetWidth(self.viewProfileButton.frame), mainRowHeight * 0.6)];
-    [self.ratingView setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMaxY(self.nameLabel.frame), rowWidth - CGRectGetWidth(self.viewProfileButton.frame), mainRowHeight * 0.4)];
+    [self.nameLabel setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 5, 10, rowWidth, mainRowHeight * 0.6)];
+    [self.ratingView setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 10, CGRectGetMaxY(self.nameLabel.frame), rowWidth, mainRowHeight * 0.4)];
     
     [self.firstSuggestion setFrame:CGRectMake(CGRectGetMaxX(self.profileImageView.frame) + 5, CGRectGetMaxY(self.ratingView.frame) + 5, rowWidth * 0.5, subRowHeight * 0.6)];
     [self.firstSuggestionRating setFrame:CGRectMake(CGRectGetMaxX(self.firstSuggestion.frame) + 5, CGRectGetMaxY(self.ratingView.frame) + 5, rowWidth * 0.5, subRowHeight * 0.6)];
@@ -71,6 +72,10 @@
     [_secondSuggestionRating setMaxRating:5];
     
     _profileImageView = [[UIImageView alloc] init];
+    [_profileImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewProfile:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [_profileImageView addGestureRecognizer:singleTap];
     
     _nameLabel = [[UILabel alloc] init];
     [_nameLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle2]];
@@ -84,7 +89,7 @@
     [_secondSuggestion setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]];
     
     _viewProfileButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_viewProfileButton setImage:[UIImage imageNamed:@"viewProfile.png"] forState:UIControlStateNormal];
+    [_viewProfileButton setImage:[UIImage imageNamed:@"profile.png"] forState:UIControlStateNormal];
     [_viewProfileButton addTarget:self action:@selector(viewProfile:) forControlEvents:UIControlEventTouchUpInside];
     
     _addFirstSuggestion = [UIButton buttonWithType:UIButtonTypeContactAdd];

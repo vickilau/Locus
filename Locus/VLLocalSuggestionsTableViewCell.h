@@ -33,6 +33,6 @@
 @protocol VLLocalSuggestionsTableViewCellDelegate <NSObject>
 
 - (void)didAddToItinerary:(UIAlertController *)alert;
-- (void)didClickToViewComments:(NSString *)activityName;
+- (void)didClickToViewComments:(NSString *)activityName spinner:(UIActivityIndicatorView *)spinner;
 
 @end

@@ -15,14 +15,14 @@ static NSString *secondLocal = @"Gautam Rao";
 static NSString *thirdLocal = @"Anwesha Jalan";
 static NSString *fourthLocal = @"Erin Singer";
 
-static NSString *firstLocalAboutMe = @"I love meeting new people! I was born and raised here and proudly claim that it is the best place ever. I know most of the residents here and can tell you about all the best spots.";
-static NSString *secondLocalAboutMe = @"You can always find me immersed in nature during the day. I love beaches, hiking, and everything in between. By night though, I am the biggest partier you will ever meet...";
-static NSString *thirdLocalAboutMe = @"I am a huge supporter of local businesses and love that this place has so many of them. I think they really make our town interesting and authentic. Let me know what you're looking for and I will most likely know of a place.";
-static NSString *fourthLocalAboutMe = @"Many people are hesitant at first to try out my suggestions but when they do, they never regret it. I really do know the hidden gems of this city and love sharing them.";
+static NSString *firstLocalAboutMe = @"I love meeting new people! I was born and raised here and know most of the residents. I know all the best spots.";
+static NSString *secondLocalAboutMe = @"You can find me immersed in nature during the day. By night though, I am the biggest partier you will ever meet...";
+static NSString *thirdLocalAboutMe = @"I am a huge supporter of our local businesses and think they really make our town interesting and authentic.";
+static NSString *fourthLocalAboutMe = @"Many people are hesitant at first to try out my suggestions but when they do, they never regret it. I love sharing these hidden gems.";
 
 static NSString *firstLocalFaves = @"#hiking #reading #eatingIceCream #painting #DTLA #artsDistrict #VeniceBeach #Chinatown";
-static NSString *secondLocalFaves = @"#clubbing #drinking #surfing #sleeping #startups #NatesFishery";
-static NSString *thirdLocalFaves = @"#shopping #coffee #business #driving #falafels #SusansBakery #Sallys";
+static NSString *secondLocalFaves = @"#clubbing #drinking #surfing #sleeping #startups";
+static NSString *thirdLocalFaves = @"#shopping #coffee #business #driving #falafels #SusansBakery #SallysSalon";
 static NSString *fourthLocalFaves = @"#humanComputerInteraction #iceCream #Avengers #Marvel";
 
 static NSString *firstLocalImage = @"Vicki.jpeg";
@@ -55,9 +55,9 @@ static float firstLocalSecondSuggestionRating = 4.2;
 static float firstLocalThirdSuggestionRating = 4.7;
 static float firstLocalFourthSuggestionRating = 4.3;
 
-static NSString *firstLocalFirstNote = @"I love hiking here right before sunset. The waterfall at the end is so worth the long journey!";
+static NSString *firstLocalFirstNote = @"I love hiking here right before sunset. The waterfall at the end is so worth it!";
 static NSString *firstLocalSecondNote = @"Definitely the best brunch place in the area!";
-static NSString *firstLocalThirdNote = @"The boardwalk is really nice. Lots of small shops and interesting people everywhere!";
+static NSString *firstLocalThirdNote = @"The boardwalk is really nice. Lots of small shops and interesting people!";
 static NSString *firstLocalFourthNote = @"Very peaceful park. Good for short naps, walking the dog, or playing with kids!";
 
 static NSString *firstLocalFirstImage = @"waterfall.jpg";

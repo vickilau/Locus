@@ -24,14 +24,14 @@
     
     CGFloat mainRowHeight = self.frame.size.height - 30;
 
-    [self.suggestionImageView setFrame:CGRectMake(0, (self.frame.size.height - (self.frame.size.width * 0.4))/2, self.frame.size.width * 0.4, self.frame.size.width * 0.4)];
+    [self.suggestionImageView setFrame:CGRectMake(0, (self.frame.size.height - (self.frame.size.width * 0.4))/2 - 20, self.frame.size.width * 0.4, self.frame.size.width * 0.4)];
 
     CGFloat rowWidth = self.frame.size.width - CGRectGetMaxX(self.suggestionImageView.frame) - 15;
     
-    [self.commentsButton setFrame:CGRectMake(self.frame.size.width - 10 - 20, 25, 20, 20)];
-    [self.addSuggestion setFrame:CGRectMake(CGRectGetMinX(self.commentsButton.frame) - 15 - 20, 25, 20, 20)];
+    [self.commentsButton setFrame:CGRectMake(CGRectGetWidth(self.suggestionImageView.frame)/2 - 15, CGRectGetMaxY(self.suggestionImageView.frame) + 10, 30, 30)];
+    [self.addSuggestion setFrame:CGRectMake(self.frame.size.width - 20 - 10, 25, 20, 20)];
     
-    [self.suggestionLabel setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, 10, rowWidth - CGRectGetWidth(self.addSuggestion.frame) - CGRectGetWidth(self.commentsButton.frame) - 20, mainRowHeight * 0.3)];
+    [self.suggestionLabel setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, 10, rowWidth - CGRectGetWidth(self.addSuggestion.frame), mainRowHeight * 0.3)];
     
     [self.suggestionRating setFrame:CGRectMake(CGRectGetMaxX(self.suggestionImageView.frame) + 5, CGRectGetMaxY(self.suggestionLabel.frame) + 5, rowWidth, mainRowHeight * 0.2)];
     
@@ -51,6 +51,11 @@
     _suggestionImageView = [[UIImageView alloc] init];
     [_suggestionImageView setContentMode:UIViewContentModeScaleAspectFill];
     [_suggestionImageView setClipsToBounds:YES];
+    [_suggestionImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showComments)];
+    [singleTap setNumberOfTapsRequired:1];
+    [_suggestionImageView addGestureRecognizer:singleTap];
+
     
     _suggestionLabel = [[UILabel alloc] init];
     [_suggestionLabel setTextColor:[UIColor colorWithRed:153.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0]];
@@ -118,8 +123,14 @@
 }
 
 - (void)showComments {
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.frame = CGRectMake(CGRectGetMaxX(self.commentsButton.frame) + 5, CGRectGetMinY(self.commentsButton.frame), 24, 24);
+    //self.accessoryView = spinner;
+    [self addSubview:spinner];
+    [spinner hidesWhenStopped];
+    [spinner startAnimating];
     id<VLLocalSuggestionsTableViewCellDelegate> strongDelegate = self.delegate;
-    [strongDelegate didClickToViewComments:self.suggestionLabel.text];
+    [strongDelegate didClickToViewComments:self.suggestionLabel.text spinner:spinner];
 
 }
 

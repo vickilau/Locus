@@ -94,7 +94,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 0: return 300.0f;
+        case 0: return 280.0f;
         case 1: return 200.0f;
         default: return 0.0f;
     }
@@ -131,13 +131,15 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)didClickToViewComments:(NSString *)activityName {
+- (void)didClickToViewComments:(NSString *)activityName spinner:(UIActivityIndicatorView *)spinner{
+    self.spinner = spinner;
     VLUserCommentsTableViewController *userCommentsTVC = [[VLUserCommentsTableViewController alloc] initWithActivityName:activityName];
     [userCommentsTVC setDelegate:self];
 }
 
 #pragma mark - VLUserCommentsTableViewControllerDelegate
 - (void)didFinishInit:(VLUserCommentsTableViewController *)controller {
+    [self.spinner stopAnimating];
     if (controller.comments.count == 0) {
         VLMessageViewController *noCommentsVC = [[VLMessageViewController alloc] init];
         [noCommentsVC.message setText:[VLConstants kNoCommentsMessage]];

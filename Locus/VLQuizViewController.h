@@ -20,7 +20,9 @@
 
 @property UIImageView *currentImageView;
 @property UIButton *dislikeButton;
+@property UILabel *dislikeLabel;
 @property UIButton *likeButton;
+@property UILabel *likeLabel;
 @property UITextView *travelStyleBlurb;
 @property UIProgressView *progressView;
 @property NSUInteger index;

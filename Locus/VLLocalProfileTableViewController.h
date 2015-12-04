@@ -25,6 +25,7 @@
 @property (strong, nonatomic) VLLocalSuggestionsTableViewCell *secondSuggestionCell;
 @property (strong, nonatomic) VLLocalSuggestionsTableViewCell *thirdSuggestionCell;
 @property (strong, nonatomic) VLLocalSuggestionsTableViewCell *fourthSuggestionCell;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 - (instancetype) initWithCell:(VLLocalTableViewCell *)cell;
 

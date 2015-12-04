@@ -12,6 +12,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.budgetChoiceField setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)];
+    
     self.currentUser = [PFUser currentUser];
     [self.budgetField setDelegate:self];
     [self.numAdultsField setDelegate:self];
@@ -19,9 +22,10 @@
     [self.currentLocation setEnabled:NO];
     [self.childrenStepper setEnabled:NO];
     [self.adultStepper setEnabled:NO];
+    [self.startDateField setUserInteractionEnabled:NO];
+    [self.endDateField setUserInteractionEnabled:NO];
     [self.currentLocation setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [self.startDateField setMinimumDate:[NSDate date]];
-    [self.endDateField setMaximumDate:[NSDate date]];
     self.oldAdultsValue = 0;
     self.oldChildrenValue = 0;
     
@@ -66,6 +70,8 @@
     [self.currentLocation setEnabled:YES];
     [self.childrenStepper setEnabled:YES];
     [self.adultStepper setEnabled:YES];
+    [self.startDateField setUserInteractionEnabled:YES];
+    [self.endDateField setUserInteractionEnabled:YES];
 
     [self redisplayTextFields];
 }
@@ -125,8 +131,6 @@
     
     [self.countryField setEnabled:NO];
     [self.cityField setEnabled:NO];
-    [self.startDateField setEnabled:NO];
-    [self.endDateField setEnabled:NO];
     [self.currentLocation setEnabled:NO];
     [self.currencyChoiceField setEnabled:NO];
     [self.budgetField setEnabled:NO];
@@ -135,6 +139,8 @@
     [self.numAdultsField setEnabled:NO];
     [self.childrenStepper setEnabled:NO];
     [self.adultStepper setEnabled:NO];
+    [self.startDateField setUserInteractionEnabled:NO];
+    [self.endDateField setUserInteractionEnabled:NO];
 }
 
 - (void)redisplayTextFields {

@@ -10,9 +10,12 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "VLLoginViewController.h"
 #import "VLSignupViewController.h"
+#import "VLTabBarController.h"
 
 @interface VLMainViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-@property BOOL firstTime;
+@property BOOL firstTimeLogin;
+@property BOOL firstTimeTab;
+@property VLLoginViewController *loginVC;
 
 @end

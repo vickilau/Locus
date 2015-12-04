@@ -16,13 +16,14 @@
 
 @interface VLItineraryTableViewCell : UITableViewCell
 
-@property (nonatomic, weak) id<VLItineraryTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id<VLItineraryTableViewCellDelegate> delegate; 
 
 @property PFUser *currentUser;
 @property UILabel *activityNameLabel;
 @property UILabel *activityNoteLabel;
 @property UIDatePicker *activityWhen;
 @property UIButton *completeButton;
+@property UIButton *cancelButton;
 @property UIImageView *border;
 
 @end
@@ -30,5 +31,5 @@
 @protocol VLItineraryTableViewCellDelegate <NSObject>
 
 - (void)didClickCompleteActivity:(VLItineraryTableViewCell *)cell;
-
+- (void)didClickCancelActivity:(VLItineraryTableViewCell *)cell;
 @end

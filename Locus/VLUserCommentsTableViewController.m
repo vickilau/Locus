@@ -62,16 +62,22 @@
         }
         [newCell.userImageView setImage:profilePic];
         NSString *username = [self.names objectAtIndex:count];
-        if ([username isEqualToString:@""]) {
-            username = @"Anonymous";
-        }
         [newCell.userName setText:username];
         NSString *comment = [self.comments objectAtIndex:count];
         if ([comment isEqualToString:@""]) {
             comment = @"No comment provided";
+            [newCell.userComment setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
         }
         [newCell.userComment setText:comment];
-        [newCell.userAgeAndGender setText:[[[self.ages objectAtIndex:count] stringByAppendingString:@", "] stringByAppendingString:[self.genders objectAtIndex:count]]];
+        if (([[self.ages objectAtIndex:count] isEqualToString:@""]) && ([[self.genders objectAtIndex:count] isEqualToString:@""])) {
+            [newCell.userAgeAndGender setText:@""];
+        } else if ([[self.ages objectAtIndex:count] isEqualToString:@""]) {
+            [newCell.userAgeAndGender setText:[self.genders objectAtIndex:count]];
+        } else if ([[self.genders objectAtIndex:count] isEqualToString:@""]) {
+            [newCell.userAgeAndGender setText:[self.ages objectAtIndex:count]];
+        } else {
+            [newCell.userAgeAndGender setText:[[[self.ages objectAtIndex:count] stringByAppendingString:@", "] stringByAppendingString:[self.genders objectAtIndex:count]]];
+        }
         [newCell.userRating setRating:[[self.ratings objectAtIndex:count] floatValue]];
         [self.commentsArray addObject:newCell];
         count++;
@@ -106,6 +112,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return CGRectGetHeight(self.navigationController.navigationBar.frame);
+    return 30;
 }
 @end

@@ -16,6 +16,7 @@
         _itineraryTableViewCells = [[NSMutableArray alloc] init];
         _itineraryArray = [[NSMutableArray alloc] init];
         _itineraryNoteArray = [[NSMutableArray alloc] init];
+        _activityCellTimes = [[NSMutableArray alloc] init];
         [self.tableView setSeparatorColor:[UIColor lightGrayColor]];
         [self.tableView setDelegate:self];
     }
@@ -26,14 +27,19 @@
     [super loadView];
     self.itineraryArray = [self.currentUser objectForKey:[VLConstants kItineraryArrayKey]];
     self.itineraryNoteArray = [self.currentUser objectForKey:[VLConstants kActivityNoteArrayKey]];
+    self.activityCellTimes = [self.currentUser objectForKey:[VLConstants kActivityTimeArrayKey]];
     [self.itineraryTableViewCells removeAllObjects];
     NSUInteger count = 0;
     while (count < self.itineraryArray.count) {
         VLItineraryTableViewCell *newCell = [[VLItineraryTableViewCell alloc] init];
         [newCell.activityNameLabel setText:[self.itineraryArray objectAtIndex:count]];
         [newCell.activityNoteLabel setText:[self.itineraryNoteArray objectAtIndex:count]];
+        if ([self.activityCellTimes objectAtIndex:count] != nil) {
+            [newCell.activityWhen setDate:[self.activityCellTimes objectAtIndex:count]];
+        }
         [newCell setDelegate:self];
         [self.itineraryTableViewCells addObject:newCell];
+        [newCell setShouldIndentWhileEditing:NO];
         count++;
     }
 }
@@ -41,6 +47,28 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self loadView];
+}
+
+- (void)editItineraryCells {
+    for (VLItineraryTableViewCell *cell in self.itineraryTableViewCells) {
+        [cell.activityWhen setUserInteractionEnabled:YES];
+    }
+}
+
+- (void)saveItineraryCells {
+    for (VLItineraryTableViewCell *cell in self.itineraryTableViewCells) {
+        [cell.activityWhen setUserInteractionEnabled:NO];
+    }
+
+    NSUInteger count = 0;
+    NSMutableArray *newActivityTimes = [[NSMutableArray alloc] init];
+    while (count < self.itineraryTableViewCells.count) {
+        VLItineraryTableViewCell *currentCell = [self.itineraryTableViewCells objectAtIndex:count];
+        [newActivityTimes addObject:currentCell.activityWhen.date];
+    
+        count++;
+    }
+    [self.currentUser setObject:newActivityTimes forKey:[VLConstants kActivityTimeArrayKey]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -83,20 +111,6 @@
     [self.itineraryTableViewCells insertObject:stringToMove atIndex:destinationIndexPath.row];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.itineraryArray removeObjectAtIndex:indexPath.row];
-        [self.itineraryNoteArray removeObjectAtIndex:indexPath.row];
-        [self.currentUser setObject:self.itineraryArray forKey:[VLConstants kItineraryArrayKey]];
-        [self.currentUser setObject:self.itineraryNoteArray forKey:[VLConstants kActivityNoteArrayKey]];
-        [self.currentUser saveInBackground];
-        [self loadView];
-    }
-}
 
 # pragma mark - VLItineraryTableViewCellDelegate
 
@@ -122,6 +136,17 @@
     [self.popupVC didMoveToParentViewController:self];
 }
 
+- (void)didClickCancelActivity:(VLItineraryTableViewCell *)cell {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    [self.itineraryArray removeObjectAtIndex:cellIndexPath.row];
+    [self.itineraryNoteArray removeObjectAtIndex:cellIndexPath.row];
+    [self.currentUser setObject:self.itineraryArray forKey:[VLConstants kItineraryArrayKey]];
+    [self.currentUser setObject:self.itineraryNoteArray forKey:[VLConstants kActivityNoteArrayKey]];
+    [self.currentUser saveInBackground];
+    [self loadView];
+
+}
+
 # pragma mark - VLItineraryCompletionViewControllerDelegate
 
 - (void)didSaveCancelCompleteActivity:(VLItineraryTableViewCell *)cell remove:(BOOL)remove {
@@ -129,7 +154,7 @@
     [self.popupVC.view removeFromSuperview];
     [self.blurEffectView removeFromSuperview];
     if (remove) {
-        [self tableView:self.tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[self.tableView indexPathForCell:cell]];
+        [self didClickCancelActivity:cell];
     }
     [self loadView];
 }

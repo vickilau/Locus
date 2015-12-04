@@ -15,8 +15,9 @@
         _message = [[UITextView alloc] initWithFrame:CGRectZero];
         [_message setTextColor:[UIColor colorWithRed:153.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0]];
         [_message setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle2]];
-        [_message setTextContainerInset:UIEdgeInsetsMake(20, 20, 20, 20)];
+        [_message setTextContainerInset:UIEdgeInsetsMake(10, 10, 10, 10)];
         [_message setClipsToBounds:YES];
+        [_message setEditable:NO];
     }
     return self;
 }

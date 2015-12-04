@@ -17,8 +17,8 @@
     
     self.currentUser = [PFUser currentUser];
     
-    self.profileTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyProfileTableViewController"];
-    self.tripTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTripTableViewController"];
+    self.profileTVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"MyProfileTableViewController"];
+    self.tripTVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"MyTripTableViewController"];
     self.quizVC = [[VLQuizViewController alloc] init];
     self.travelStyleTVC = [[VLTravelStyleViewController alloc] init];
     self.localTVC = [[VLLocalTableViewController alloc] init];
@@ -78,8 +78,7 @@
 
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+/*- (void)viewWillAppear:(BOOL)animated {
     if ([self.tabBarItem.title isEqualToString:@"Profile"]) {
         [self setEditSaveButton];
         [self.pageTitle setText:@"My Profile"];
@@ -112,16 +111,70 @@
             [self setContainerViewController:self.emptyItineraryMessageVC];
         }
     }
+}*/
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self viewDidLayoutSubviews];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     [self setHeaderElementsLayout];
+
+    if ([self.tabBarItem.title isEqualToString:@"Profile"]) {
+        [self setEditSaveButton];
+        [self.pageTitle setText:@"My Profile"];
+        [self setContainerViewController:self.profileTVC];
+        [self layoutContainerViewController:self.profileTVC];
+    } else if ([self.tabBarItem.title isEqualToString:@"Style"]) {
+        [self setBuildStyleButton];
+        [self.pageTitle setText:@"My Style"];
+        if (!self.actionButton.selected) {
+            [self setContainerViewController:self.travelStyleTVC];
+            [self layoutContainerViewController:self.travelStyleTVC];
+        }
+    } else if ([self.tabBarItem.title isEqualToString:@"Trip"]) {
+        [self setEditSaveButton];
+        [self.pageTitle setText:@"My Trip"];
+        [self setContainerViewController:self.tripTVC];
+        [self layoutContainerViewController:self.tripTVC];
+    } else if ([self.tabBarItem.title isEqualToString:@"Connect"]) {
+        [self.pageTitle setText:@"Connect"];
+        [self.actionButton setHidden:YES];
+        if (([self.currentUser objectForKey:[VLConstants kCityFieldKey]] && [self.currentUser objectForKey:[VLConstants kCountryFieldKey]] && ![[self.currentUser objectForKey:[VLConstants kCityFieldKey]] isEqualToString:@""] && ![[self.currentUser objectForKey:[VLConstants kCountryFieldKey]] isEqualToString:@""])) {
+            [self setContainerViewController:self.connectLocalsNC];
+            [self layoutContainerViewController:self.connectLocalsNC];
+        } else {
+            [self setContainerViewController:self.connectLocalsErrorVC];
+            [self layoutContainerViewController:self.connectLocalsErrorVC];
+        }
+    } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
+        [self.pageTitle setText:@"My Itinerary"];
+        [self setEditSaveButton];
+        if ([[self.currentUser objectForKey:[VLConstants kItineraryArrayKey]] count] > 0) {
+            [self setContainerViewController:self.itineraryTVC];
+            [self layoutContainerViewController:self.itineraryTVC];
+        } else {
+            [self.itineraryTVC.tableView setBackgroundColor:[UIColor clearColor]];
+            [self setContainerViewController:self.emptyItineraryMessageVC];
+            [self layoutContainerViewController:self.emptyItineraryMessageVC];
+        }
+    }
 }
 
 - (void)setHeaderElementsLayout {
     CGFloat center = CGRectGetWidth(self.view.bounds)/2;
     CGFloat rightCenter = (center - 30)/2;
-    [self.profilePicView setFrame:CGRectMake(20, 20, fminf(140, center - 10), 120)];
+    CGFloat heightOfUsableScreen = self.view.bounds.size.height - 20 - self.tabBarController.tabBar.frame.size.height;
+    //[self.profilePicView setFrame:CGRectMake(20, 20, fminf(140, center - 20), 120)];
+    [self.profilePicView setFrame:CGRectMake(20, 20, fminf(heightOfUsableScreen * 0.20 + 25, center - 30), heightOfUsableScreen * 0.20)];
     [self.actionButton setFrame: CGRectMake(center + rightCenter - 30, CGRectGetMaxY(self.profilePicView.frame) - 30, 60, 30)];
     [self.logoutButton  setFrame:CGRectMake(CGRectGetWidth(self.view.frame) - 10 - 55, 20, 60, 30)];
-    [self.pageTitle setFrame:CGRectMake(center + rightCenter - 85, CGRectGetMaxY(self.logoutButton.frame) + 10, 170, 40)];
+    
+    CGSize pageTitleFontSize = [self.pageTitle.text sizeWithAttributes:@{NSFontAttributeName:[self.pageTitle font]}];
+
+    [self.pageTitle setFrame:CGRectMake(center, CGRectGetMaxY(self.logoutButton.frame) + ((CGRectGetMinY(self.actionButton.frame) - CGRectGetMaxY(self.logoutButton.frame))/2) - pageTitleFontSize.height/2, center - 20, pageTitleFontSize.height)];
+    [self.pageTitle setTextAlignment:NSTextAlignmentCenter];
     
     [self.actionButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
     [self.actionButton setTitleColor:[UIColor colorWithRed:51/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1.0] forState:UIControlStateNormal];
@@ -131,26 +184,27 @@
 
 - (void)setContainerViewController:(UIViewController *) viewController {
     [self addChildViewController:viewController];
-    [viewController.view setFrame:CGRectMake(10, CGRectGetMaxY(self.profilePicView.frame) + 10, CGRectGetWidth(self.view.bounds) - 20, CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.profilePicView.frame) - 20 - self.tabBarController.tabBar.frame.size.height)];
-    [VLUtilities makeRound:viewController.view];
-    
     [self.view addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
 }
 
+- (void)layoutContainerViewController:(UIViewController *) viewController {
+    [viewController.view setFrame:CGRectMake(10, CGRectGetMaxY(self.profilePicView.frame) + 10, CGRectGetWidth(self.view.bounds) - 20, CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.profilePicView.frame) - 20 - self.tabBarController.tabBar.frame.size.height)];
+    [VLUtilities makeRound:viewController.view];
+}
+
 - (void)actionButtonClicked {
     [self.actionButton setSelected:!self.actionButton.selected];
-    if ([self.tabBarItem.title isEqualToString:@"Style"]) {
-        [self setBuildStyleViewController];
-        return;
-    }
     if (self.actionButton.selected == YES) {
         if ([self.tabBarItem.title isEqualToString:@"Profile"]) {
             [self.profileTVC editProfileFields];
         } else if ([self.tabBarItem.title isEqualToString:@"Trip"]) {
             [self.tripTVC editTripFields];
         } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
-            [self.itineraryTVC setEditing:YES];
+            [self.itineraryTVC editItineraryCells];
+        } else if ([self.tabBarItem.title isEqualToString:@"Style"]) {
+            [self setBuildStyleViewController];
+            return;
         }
     } else {
         if ([self.tabBarItem.title isEqualToString:@"Profile"]) {
@@ -158,9 +212,12 @@
         } else if ([self.tabBarItem.title isEqualToString:@"Trip"]) {
             [self.tripTVC saveTripFields];
         } else if ([self.tabBarItem.title isEqualToString:@"Itinerary"]) {
-            [self.itineraryTVC setEditing:NO];
+            [self.itineraryTVC saveItineraryCells];
             [self.currentUser saveInBackground];
-
+        } else if ([self.tabBarItem.title isEqualToString:@"Style"]) {
+            [self.quizVC.view removeFromSuperview];
+            [self.quizVC removeFromParentViewController];
+            [self setContainerViewController:self.travelStyleTVC];
         }
     }
 }
@@ -192,6 +249,7 @@
     self.quizVC = [[VLQuizViewController alloc] init];
     [self.quizVC setDelegate:self];
     [self setContainerViewController:self.quizVC];
+    [self layoutContainerViewController:self.quizVC];
 }
 
 #pragma mark - VLQuizViewControllerDelegate

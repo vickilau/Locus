@@ -20,8 +20,13 @@
 @property (nonatomic, strong) NSMutableArray *itineraryTableViewCells;
 @property (nonatomic, strong) NSMutableArray *itineraryArray;
 @property (nonatomic, strong) NSMutableArray *itineraryNoteArray;
+@property (nonatomic, strong) NSMutableArray *activityCellTimes;
 
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
 @property (nonatomic, strong) VLItineraryCompletionViewController *popupVC;
+
+- (void)editItineraryCells;
+
+- (void)saveItineraryCells;
 
 @end

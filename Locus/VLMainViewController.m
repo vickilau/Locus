@@ -12,34 +12,43 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.firstTime = YES;
+    self.firstTimeLogin = YES;
+    self.firstTimeTab = YES;
     self.view.backgroundColor = [UIColor clearColor];
+    self.loginVC = [[VLLoginViewController alloc] init];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.firstTime) {
-        VLLoginViewController *loginVC = [[VLLoginViewController alloc] init];
-        [loginVC setFields:(PFLogInFieldsUsernameAndPassword
+    if (self.firstTimeLogin) {
+        [self.loginVC setFields:(PFLogInFieldsUsernameAndPassword
                             | PFLogInFieldsLogInButton
                             | PFLogInFieldsSignUpButton
                             | PFLogInFieldsPasswordForgotten
                             | PFLogInFieldsFacebook)];
-        [loginVC setDelegate:self];
+        [self.loginVC setDelegate:self];
         VLSignupViewController *signUpVC = [[VLSignupViewController alloc] init];
         [signUpVC setDelegate:self];
-        [loginVC setSignUpController:signUpVC];
+        [self.loginVC setSignUpController:signUpVC];
         NSArray *permissions = @[@"public_profile", @"user_photos"];
-        [loginVC setFacebookPermissions:permissions];
-        [self presentViewController:loginVC animated:YES completion:nil];
-        self.firstTime = NO;
+        [self.loginVC setFacebookPermissions:permissions];
+        [self presentViewController:self.loginVC animated:YES completion:nil];
+        self.firstTimeLogin = NO;
     }
+}
+
+- (void)viewDidLayoutSubviews {
+    if ([PFUser currentUser] != nil && !self.firstTimeTab) {
+        [self logInViewController:self.loginVC didLogInUser:[PFUser currentUser]];
+    }
+    self.firstTimeTab = NO;
 }
 
 - (void)logInViewController:(PFLogInViewController *)controller
                didLogInUser:(PFUser *)user {
-    UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
-    [tabBC.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+    
+    VLTabBarController *tabBC = [[VLTabBarController alloc] init];
     tabBC.view.frame = self.view.frame;
     [controller.view addSubview:tabBC.view];
     [controller addChildViewController:tabBC];
@@ -48,8 +57,7 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    UITabBarController *tabBC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyTabBarController"];
-    [tabBC.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+    VLTabBarController *tabBC = [[VLTabBarController alloc] init];
     tabBC.view.frame = self.view.frame;
     [signUpController.view addSubview:tabBC.view];
     [signUpController addChildViewController:tabBC];

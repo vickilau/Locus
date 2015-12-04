@@ -34,13 +34,20 @@
     [self.currentUser setValue:[self.homeLocationField text] forKey:[VLConstants kHomeLocationKey]];
     if (![[self.aboutMeTextView text] isEqualToString:[VLConstants kPlaceholderAboutMeString]]) {
         [self.currentUser setValue:[self.aboutMeTextView text] forKey:[VLConstants kAboutMeFieldKey]];
+    } else {
+        [self.currentUser setValue:@"" forKey:[VLConstants kAboutMeFieldKey]];
     }
     if (![[self.favActivitiesTextView text] isEqualToString:[VLConstants kPlaceholderFavActivitiesString]]) {
         [self.currentUser setValue:[self.favActivitiesTextView text] forKey:[VLConstants kFavActivitiesFieldKey]];
+    } else {
+        [self.currentUser setValue:@"" forKey:[VLConstants kFavActivitiesFieldKey]];
     }
     if (![[self.favPlacesTextView text] isEqualToString:[VLConstants kPlaceholderFavPlacesString]]) {
         [self.currentUser setValue:[self.favPlacesTextView text] forKey:[VLConstants kFavPlacesFieldKey]];
+    } else {
+        [self.currentUser setValue:@"" forKey:[VLConstants kFavPlacesFieldKey]];
     }
+    
     [self.currentUser saveInBackground];
 
     [self reloadTextFieldValues];

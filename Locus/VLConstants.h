@@ -40,6 +40,7 @@
 
 + (NSString *) kItineraryArrayKey;
 + (NSString *) kActivityNoteArrayKey;
++ (NSString *) kActivityTimeArrayKey;
 
 + (NSString *)kTravelStyleKey;
 
